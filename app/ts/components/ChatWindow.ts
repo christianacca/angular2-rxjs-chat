@@ -1,19 +1,25 @@
 import {
   Component,
-  OnInit,
+  AfterViewInit,
+  ChangeDetectionStrategy,
   ElementRef,
-  ChangeDetectionStrategy
+  Input,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  QueryList,
+  ViewChild,
+  ViewChildren
 } from '@angular/core';
 import {
   MessagesService,
   ThreadsService,
   UserService
 } from '../services/services';
-import {Observable} from 'rxjs';
+import {Observable, Subject, Subscription} from 'rxjs';
 import {User, Thread, Message} from '../models';
 
 @Component({
-  inputs: ['message'],
   selector: 'chat-message',
   template: `
   <div class="msg-container"
@@ -37,25 +43,14 @@ import {User, Thread, Message} from '../models';
   </div>
   `
 })
-export class ChatMessage implements OnInit {
-  message: Message;
-  currentUser: User;
+export class ChatMessage implements OnChanges {
+  @Input() message: Message;
+  @Input() currentUser: User;
   incoming: boolean;
 
-  constructor(public userService: UserService) {
+  ngOnChanges(): void {
+    this.incoming = this.message.author.id !== this.currentUser.id;
   }
-
-  ngOnInit(): void {
-    this.userService.currentUser
-      .subscribe(
-        (user: User) => {
-          this.currentUser = user;
-          if (this.message.author && user) {
-            this.incoming = this.message.author.id !== user.id;
-          }
-        });
-  }
-
 }
 
 @Component({
@@ -71,7 +66,7 @@ export class ChatMessage implements OnInit {
               <div class="panel-title-container">
                 <h3 class="panel-title">
                   <span class="glyphicon glyphicon-comment"></span>
-                  Chat - {{currentThread.name}}
+                  Chat - {{(currentThread$ | async).name}}
                 </h3>
               </div>
               <div class="panel-buttons-container">
@@ -79,10 +74,11 @@ export class ChatMessage implements OnInit {
               </div>
             </div>
 
-            <div class="panel-body msg-container-base">
+            <div class="panel-body msg-container-base" #messageContainer>
               <chat-message
-                   *ngFor="let message of messages | async"
-                   [message]="message">
+                   *ngFor="let message of messages$ | async"
+                   [message]="message"
+                   [currentUser]="userService.currentUser | async">
               </chat-message>
             </div>
 
@@ -91,11 +87,11 @@ export class ChatMessage implements OnInit {
                 <input type="text" 
                        class="chat-input"
                        placeholder="Write your message here..."
-                       (keydown.enter)="onEnter($event)"
+                       (keydown.enter)="sendMessage$.next($event)"
                        [(ngModel)]="draftMessage.text" />
                 <span class="input-group-btn">
                   <button class="btn-chat"
-                     (click)="onEnter($event)"
+                     (click)="sendMessage$.next($event)"
                      >Send</button>
                 </span>
               </div>
@@ -107,11 +103,14 @@ export class ChatMessage implements OnInit {
     </div>
   `
 })
-export class ChatWindow implements OnInit {
-  messages: Observable<any>;
-  currentThread: Thread;
+export class ChatWindow implements OnDestroy, OnInit, AfterViewInit {
+  @ViewChild('messageContainer') messageContainer: ElementRef;
+  @ViewChildren(ChatMessage) messageComponents: QueryList<ChatMessage>;
+  currentThread$: Observable<Thread>;
   draftMessage: Message;
-  currentUser: User;
+  messages$: Observable<any>;
+  sendMessage$ = new Subject<any>();
+  private newMessagesSub: Subscription;
 
   constructor(public messagesService: MessagesService,
               public threadsService: ThreadsService,
@@ -119,49 +118,42 @@ export class ChatWindow implements OnInit {
               public el: ElementRef) {
   }
 
+  ngAfterViewInit() {
+    this.messageComponents.changes.subscribe(() => {
+      this.scrollToBottom();
+    });
+  }
+
   ngOnInit(): void {
-    this.messages = this.threadsService.currentThreadMessages;
-
+    this.currentThread$ = this.threadsService.currentThread;
+    this.messages$ = this.threadsService.currentThreadMessages;
     this.draftMessage = new Message();
 
-    this.threadsService.currentThread.subscribe(
-      (thread: Thread) => {
-        this.currentThread = thread;
+    this.newMessagesSub = this.newMessages$().subscribe(m => {
+      this.sendMessage(m);
+    });
+  }
+
+  ngOnDestroy() {
+    this.newMessagesSub.unsubscribe();
+  }
+
+  private newMessages$() {
+    return this.sendMessage$
+      .withLatestFrom(this.userService.currentUser, this.currentThread$)
+      .map(([, author, thread]) => {
+        return Object.assign({}, this.draftMessage, {author, thread, isRead: true}) as Message;
       });
-
-    this.userService.currentUser
-      .subscribe(
-        (user: User) => {
-          this.currentUser = user;
-        });
-
-    this.messages
-      .subscribe(
-        (messages: Array<Message>) => {
-          setTimeout(() => {
-            this.scrollToBottom();
-          });
-        });
   }
 
-  onEnter(event: any): void {
-    this.sendMessage();
-    event.preventDefault();
-  }
-
-  sendMessage(): void {
-    let m: Message = this.draftMessage;
-    m.author = this.currentUser;
-    m.thread = this.currentThread;
-    m.isRead = true;
-    this.messagesService.addMessage(m);
+  private sendMessage(msg: Message): void {
+    this.messagesService.addMessage(msg);
     this.draftMessage = new Message();
   }
 
-  scrollToBottom(): void {
-    let scrollPane: any = this.el
-      .nativeElement.querySelector('.msg-container-base');
+  private scrollToBottom(): void {
+    // todo: find a way to use the Renderer service to do this instead
+    let scrollPane = this.messageContainer.nativeElement;
     scrollPane.scrollTop = scrollPane.scrollHeight;
   }
-
 }

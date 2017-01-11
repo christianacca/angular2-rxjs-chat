@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {MessagesService, ThreadsService} from '../services/services';
-import {Message, Thread} from '../models';
-import * as _ from 'underscore';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'nav-bar',
@@ -16,7 +15,7 @@ import * as _ from 'underscore';
       </div>
       <p class="navbar-text navbar-right">
         <button class="btn btn-primary" type="button">
-          Messages <span class="badge">{{unreadMessagesCount}}</span>
+          Messages <span class="badge">{{unreadMessagesCount | async}}</span>
         </button>
       </p>
     </div>
@@ -24,37 +23,19 @@ import * as _ from 'underscore';
   `
 })
 export class ChatNavBar implements OnInit {
-  unreadMessagesCount: number;
+  unreadMessagesCount: Observable<number>;
 
   constructor(public messagesService: MessagesService,
               public threadsService: ThreadsService) {
   }
 
   ngOnInit(): void {
-    this.messagesService.messages
-      .combineLatest(
-        this.threadsService.currentThread,
-        (messages: Message[], currentThread: Thread) =>
-          [currentThread, messages] )
-
-      .subscribe(([currentThread, messages]: [Thread, Message[]]) => {
-        this.unreadMessagesCount =
-          _.reduce(
-            messages,
-            (sum: number, m: Message) => {
-              let messageIsInCurrentThread: boolean = m.thread &&
-                currentThread &&
-                (currentThread.id === m.thread.id);
-              // note: in a "real" app you should also exclude 
-              // messages that were authored by the current user b/c they've
-              // already been "read"
-              if (m && !m.isRead && !messageIsInCurrentThread) {
-                sum = sum + 1;
-              }
-              return sum;
-            },
-            0);
-      });
+    this.unreadMessagesCount = this.messagesService.messages
+      .map(msgs =>
+        // note: in a "real" app you should also exclude 
+        // messages that were authored by the current user b/c they've
+        // already been "read"
+        msgs.reduce((sum, m) => !m.isRead ? ++sum : sum, 0));
   }
 }
 

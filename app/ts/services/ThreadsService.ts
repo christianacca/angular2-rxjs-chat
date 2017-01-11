@@ -24,46 +24,29 @@ export class ThreadsService {
   constructor(public messagesService: MessagesService) {
 
     this.threads = messagesService.messages
-      .map( (messages: Message[]) => {
-        let threads: {[key: string]: Thread} = {};
-        // Store the message's thread in our accumulator `threads`
-        messages.map((message: Message) => {
-          threads[message.thread.id] = threads[message.thread.id] ||
-            message.thread;
-
-          // Cache the most recent message for each thread
-          let messagesThread: Thread = threads[message.thread.id];
-          if (!messagesThread.lastMessage ||
-              messagesThread.lastMessage.sentAt < message.sentAt) {
-            messagesThread.lastMessage = message;
-          }
-        });
-        return threads;
-      });
+      .map(msgs => msgs.reduce(
+        (acc, m) => Object.assign(acc, { [m.thread.id]: m.thread }),
+        {}));
 
     this.orderedThreads = this.threads
       .map((threadGroups: { [key: string]: Thread }) => {
         let threads: Thread[] = _.values(threadGroups);
-        return _.sortBy(threads, (t: Thread) => t.lastMessage.sentAt).reverse();
+        return _.sortBy(threads, t => t.lastMessage.sentAt).reverse();
       });
 
     this.currentThreadMessages = this.currentThread
       .combineLatest(messagesService.messages,
-                     (currentThread: Thread, messages: Message[]) => {
-        if (currentThread && messages.length > 0) {
-          return _.chain(messages)
-            .filter((message: Message) =>
-                    (message.thread.id === currentThread.id))
-            .map((message: Message) => {
-              message.isRead = true;
-              return message; })
-            .value();
-        } else {
-          return [];
-        }
-      });
+                     (currentThread, msgs) =>
+                     msgs.filter(m => m.thread.id === currentThread.id))
+      .do(msgs => {
+        msgs.forEach(m => {
+          m.isRead = true;
+        });
+      })
+      .share();
 
-    this.currentThread.subscribe(this.messagesService.markThreadAsRead);
+    this.currentThread
+      .subscribe(t => this.messagesService.markThreadAsRead(t));
   }
 
   setCurrentThread(newThread: Thread): void {

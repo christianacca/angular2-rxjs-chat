@@ -1,6 +1,6 @@
 // import {MessagesService} from '../app/ts/services/services';
 
-import {Calculator} from 'calculator';
+import {Calculator} from './calculator';
 
 describe('Hello', () => {
 

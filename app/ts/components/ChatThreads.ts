@@ -1,7 +1,8 @@
 import {
   Component,
   OnInit,
-  ChangeDetectionStrategy
+  ChangeDetectionStrategy,
+  HostListener
 } from '@angular/core';
 import {ThreadsService} from '../services/services';
 import {Observable} from 'rxjs';
@@ -18,33 +19,27 @@ import {Thread} from '../models';
     </div>
     <div class="media-body">
       <h5 class="media-heading contact-name">{{thread.name}}
-        <span *ngIf="selected">&bull;</span>
+        <span *ngIf="selected | async">&bull;</span>
       </h5>
       <small class="message-preview">{{thread.lastMessage.text}}</small>
     </div>
-    <a (click)="clicked($event)" class="div-link">Select</a>
   </div>
   `
 })
 export class ChatThread implements OnInit {
   thread: Thread;
-  selected: boolean = false;
+  selected: Observable<boolean>;
 
   constructor(public threadsService: ThreadsService) {
   }
 
   ngOnInit(): void {
-    this.threadsService.currentThread
-      .subscribe( (currentThread: Thread) => {
-        this.selected = currentThread &&
-          this.thread &&
-          (currentThread.id === this.thread.id);
-      });
+    this.selected = this.threadsService.currentThread
+      .map(currentThread => currentThread && (currentThread.id === this.thread.id));
   }
 
-  clicked(event: any): void {
+  @HostListener('click') clicked(): void {
     this.threadsService.setCurrentThread(this.thread);
-    event.preventDefault();
   }
 }
 
