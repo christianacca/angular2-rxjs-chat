@@ -48,6 +48,12 @@
       "resolved": "https://registry.npmjs.org/@types/jasmine/-/jasmine-2.5.40.tgz",
       "dev": true
     },
+    "@types/lodash": {
+      "version": "4.14.52",
+      "from": "@types/lodash@latest",
+      "resolved": "https://registry.npmjs.org/@types/lodash/-/lodash-4.14.52.tgz",
+      "dev": true
+    },
     "@types/node": {
       "version": "6.0.58",
       "from": "@types/node@>=6.0.42 <7.0.0",
@@ -2389,6 +2395,12 @@
           "from": "glob@>=5.0.10 <6.0.0",
           "resolved": "https://registry.npmjs.org/glob/-/glob-5.0.15.tgz",
           "dev": true
+        },
+        "lodash": {
+          "version": "3.10.1",
+          "from": "lodash@>=3.8.0 <4.0.0",
+          "resolved": "https://registry.npmjs.org/lodash/-/lodash-3.10.1.tgz",
+          "dev": true
         }
       }
     },
@@ -2408,7 +2420,15 @@
       "version": "0.2.1",
       "from": "karma-phantomjs-launcher@0.2.1",
       "resolved": "https://registry.npmjs.org/karma-phantomjs-launcher/-/karma-phantomjs-launcher-0.2.1.tgz",
-      "dev": true
+      "dev": true,
+      "dependencies": {
+        "lodash": {
+          "version": "3.10.1",
+          "from": "lodash@>=3.10.1 <4.0.0",
+          "resolved": "https://registry.npmjs.org/lodash/-/lodash-3.10.1.tgz",
+          "dev": true
+        }
+      }
     },
     "karma-sourcemap-loader": {
       "version": "0.3.5",
@@ -2436,6 +2456,12 @@
       "resolved": "https://registry.npmjs.org/karma-webpack/-/karma-webpack-1.7.0.tgz",
       "dev": true,
       "dependencies": {
+        "lodash": {
+          "version": "3.10.1",
+          "from": "lodash@>=3.8.0 <4.0.0",
+          "resolved": "https://registry.npmjs.org/lodash/-/lodash-3.10.1.tgz",
+          "dev": true
+        },
         "source-map": {
           "version": "0.1.43",
           "from": "source-map@>=0.1.41 <0.2.0",
@@ -2570,9 +2596,9 @@
       "resolved": "https://registry.npmjs.org/lockfile/-/lockfile-1.0.3.tgz"
     },
     "lodash": {
-      "version": "3.10.1",
-      "from": "lodash@3.10.1",
-      "resolved": "https://registry.npmjs.org/lodash/-/lodash-3.10.1.tgz"
+      "version": "4.17.4",
+      "from": "lodash@latest",
+      "resolved": "https://registry.npmjs.org/lodash/-/lodash-4.17.4.tgz"
     },
     "lodash._arraycopy": {
       "version": "3.0.0",

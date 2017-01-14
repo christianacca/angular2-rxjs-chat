@@ -6,74 +6,52 @@
  *
  */
 
+import { ChatApp, ChatAppImpl } from './components/ChatApp';
 import {
-  NgModule,
-  Component
-} from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import {
-  FormsModule
-} from '@angular/forms';
-
-/*
- * Components
- */
-import {ChatNavBar} from './components/ChatNavBar';
-import {
+  ChatThread,
   ChatThreads,
-  ChatThread
-  } from './components/ChatThreads';
+} from './components/ChatThreads';
+import {
+  Component,
+  NgModule,
+} from '@angular/core';
+
+import { BrowserModule } from '@angular/platform-browser';
+import {
+  ChatMessage,
+} from './components/ChatMessage';
+import { ChatNavBar } from './components/ChatNavBar';
 import {
   ChatWindow,
-  ChatMessage
-  } from './components/ChatWindow';
-
-/*
- * Injectables
- */
-import {servicesInjectables} from './services/services';
-import {utilInjectables} from './util/util';
-
-/*
- * Services
- */
+} from './components/ChatWindow';
 import {
-  MessagesService,
-  ThreadsService,
-  UserService
-} from './services/services';
-
-import {ChatExampleData} from './ChatExampleData';
+  FormsModule,
+} from '@angular/forms';
+import { UseCaseModule } from './shared/use-case/index';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { utilInjectables } from './util/util';
 
 /*
  * Webpack
  */
 require('../css/styles.css');
 
+
 @Component({
-  selector: 'chat-app',
+  selector: 'app',
   template: `
-  <div>
-    <nav-bar></nav-bar>
-    <div class="container">
-      <chat-threads></chat-threads>
-      <chat-window></chat-window>
-    </div>
-  </div>
+  <ng-container use-case>
+    <chat-app></chat-app>
+  </ng-container>
   `
 })
-class ChatApp {
-  constructor(public messagesService: MessagesService,
-              public threadsService: ThreadsService,
-              public userService: UserService) {
-    ChatExampleData.init(messagesService, threadsService, userService);
-  }
-}
+class App {}
 
 @NgModule({
   declarations: [
+    App,
     ChatApp,
+    ChatAppImpl,
     ChatNavBar,
     ChatThreads,
     ChatThread,
@@ -83,12 +61,12 @@ class ChatApp {
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    UseCaseModule
   ],
-  bootstrap: [ ChatApp ],
-  providers: [ servicesInjectables ]
+  bootstrap: [App]
 })
-export class ChatAppModule {}
+export class ChatAppModule { }
 
 platformBrowserDynamic().bootstrapModule(ChatAppModule);
 
@@ -96,9 +74,10 @@ platformBrowserDynamic().bootstrapModule(ChatAppModule);
 // You can ignore these 'require' statements. The code will work without them.
 // They're currently required to get watch-reloading
 // from webpack, but removing them is a TODO
-require('./services/services');
+require('./services');
 require('./ChatExampleData');
 require('./util/util');
+require('./components/ChatApp');
 require('./components/ChatNavBar');
 require('./components/ChatWindow');
 require('./components/ChatThreads');

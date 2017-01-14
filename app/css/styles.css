@@ -222,8 +222,8 @@ th {
     page-break-after: avoid; }
   .navbar {
     display: none; }
-  .btn > .caret, .chat-window .panel-footer .btn-chat > .caret,
-  .dropup > .btn > .caret, .chat-window .panel-footer
+  .btn > .caret, chat-window .panel-footer .btn-chat > .caret,
+  .dropup > .btn > .caret, chat-window .panel-footer
   .dropup > .btn-chat > .caret {
     border-top-color: #000 !important; }
   .label {
@@ -1087,7 +1087,7 @@ figure {
 img {
   vertical-align: middle; }
 
-.img-responsive, .chat-window .msg-container .avatar img {
+.img-responsive, chat-window chat-message .avatar img {
   display: block;
   max-width: 100%;
   height: auto; }
@@ -1531,28 +1531,28 @@ pre {
   .container-fluid:after {
     clear: both; }
 
-.row, .chat-window-container, .chat-window .msg-container {
+.row, chat-window-container, chat-window chat-message {
   margin-left: -15px;
   margin-right: -15px; }
-  .row:before, .chat-window-container:before, .chat-window .msg-container:before, .row:after, .chat-window-container:after, .chat-window .msg-container:after {
+  .row:before, chat-window-container:before, chat-window chat-message:before, .row:after, chat-window-container:after, chat-window chat-message:after {
     content: " ";
     display: table; }
-  .row:after, .chat-window-container:after, .chat-window .msg-container:after {
+  .row:after, chat-window-container:after, chat-window chat-message:after {
     clear: both; }
 
-.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .chat-window .top-bar .panel-buttons-container, .chat-window .msg-container .avatar, .col-sm-2, .col-md-2, .chat-window .top-bar .panel-buttons-container, .chat-window .msg-container .avatar, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .chat-window, .col-lg-3, .conversation-wrap, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .chat-window, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .chat-window .top-bar .panel-title-container, .chat-window .messages, .col-sm-10, .col-md-10, .chat-window .top-bar .panel-title-container, .chat-window .messages, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .chat-window .panel-container, .col-sm-12, .col-md-12, .chat-window .panel-container, .col-lg-12 {
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, chat-window .top-bar .panel-buttons-container, chat-window chat-message .avatar, .col-sm-2, .col-md-2, chat-window .top-bar .panel-buttons-container, chat-window chat-message .avatar, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, chat-window, .col-lg-3, .conversation-wrap, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, chat-window, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, chat-window .top-bar .panel-title-container, chat-window .messages, .col-sm-10, .col-md-10, chat-window .top-bar .panel-title-container, chat-window .messages, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, chat-window .panel-container, .col-sm-12, .col-md-12, chat-window .panel-container, .col-lg-12 {
   position: relative;
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px; }
 
-.col-xs-1, .col-xs-2, .chat-window .top-bar .panel-buttons-container, .chat-window .msg-container .avatar, .col-xs-3, .col-xs-4, .col-xs-5, .chat-window, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .chat-window .top-bar .panel-title-container, .chat-window .messages, .col-xs-11, .col-xs-12, .chat-window .panel-container {
+.col-xs-1, .col-xs-2, chat-window .top-bar .panel-buttons-container, chat-window chat-message .avatar, .col-xs-3, .col-xs-4, .col-xs-5, chat-window, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, chat-window .top-bar .panel-title-container, chat-window .messages, .col-xs-11, .col-xs-12, chat-window .panel-container {
   float: left; }
 
 .col-xs-1 {
   width: 8.33333%; }
 
-.col-xs-2, .chat-window .top-bar .panel-buttons-container, .chat-window .msg-container .avatar {
+.col-xs-2, chat-window .top-bar .panel-buttons-container, chat-window chat-message .avatar {
   width: 16.66667%; }
 
 .col-xs-3 {
@@ -1561,7 +1561,7 @@ pre {
 .col-xs-4 {
   width: 33.33333%; }
 
-.col-xs-5, .chat-window {
+.col-xs-5, chat-window {
   width: 41.66667%; }
 
 .col-xs-6 {
@@ -1576,13 +1576,13 @@ pre {
 .col-xs-9 {
   width: 75%; }
 
-.col-xs-10, .chat-window .top-bar .panel-title-container, .chat-window .messages {
+.col-xs-10, chat-window .top-bar .panel-title-container, chat-window .messages {
   width: 83.33333%; }
 
 .col-xs-11 {
   width: 91.66667%; }
 
-.col-xs-12, .chat-window .panel-container {
+.col-xs-12, chat-window .panel-container {
   width: 100%; }
 
 .col-xs-pull-0 {
@@ -1809,13 +1809,13 @@ pre {
     margin-left: 100%; } }
 
 @media (min-width: 992px) {
-  .col-md-1, .col-md-2, .chat-window .top-bar .panel-buttons-container, .chat-window .msg-container .avatar, .col-md-3, .chat-window, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .chat-window .top-bar .panel-title-container, .chat-window .messages, .col-md-11, .col-md-12, .chat-window .panel-container {
+  .col-md-1, .col-md-2, chat-window .top-bar .panel-buttons-container, chat-window chat-message .avatar, .col-md-3, chat-window, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, chat-window .top-bar .panel-title-container, chat-window .messages, .col-md-11, .col-md-12, chat-window .panel-container {
     float: left; }
   .col-md-1 {
     width: 8.33333%; }
-  .col-md-2, .chat-window .top-bar .panel-buttons-container, .chat-window .msg-container .avatar {
+  .col-md-2, chat-window .top-bar .panel-buttons-container, chat-window chat-message .avatar {
     width: 16.66667%; }
-  .col-md-3, .chat-window {
+  .col-md-3, chat-window {
     width: 25%; }
   .col-md-4 {
     width: 33.33333%; }
@@ -1829,11 +1829,11 @@ pre {
     width: 66.66667%; }
   .col-md-9 {
     width: 75%; }
-  .col-md-10, .chat-window .top-bar .panel-title-container, .chat-window .messages {
+  .col-md-10, chat-window .top-bar .panel-title-container, chat-window .messages {
     width: 83.33333%; }
   .col-md-11 {
     width: 91.66667%; }
-  .col-md-12, .chat-window .panel-container {
+  .col-md-12, chat-window .panel-container {
     width: 100%; }
   .col-md-pull-0 {
     right: auto; }
@@ -2304,7 +2304,7 @@ output {
   line-height: 1.42857;
   color: #555555; }
 
-.form-control, .chat-window .panel-footer .chat-input {
+.form-control, chat-window .panel-footer .chat-input {
   display: block;
   width: 100%;
   height: 34px;
@@ -2321,107 +2321,107 @@ output {
   -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
   -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s; }
-  .form-control:focus, .chat-window .panel-footer .chat-input:focus {
+  .form-control:focus, chat-window .panel-footer .chat-input:focus {
     border-color: #66afe9;
     outline: 0;
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6); }
-  .form-control::-moz-placeholder, .chat-window .panel-footer .chat-input::-moz-placeholder {
+  .form-control::-moz-placeholder, chat-window .panel-footer .chat-input::-moz-placeholder {
     color: #999;
     opacity: 1; }
-  .form-control:-ms-input-placeholder, .chat-window .panel-footer .chat-input:-ms-input-placeholder {
+  .form-control:-ms-input-placeholder, chat-window .panel-footer .chat-input:-ms-input-placeholder {
     color: #999; }
-  .form-control::-webkit-input-placeholder, .chat-window .panel-footer .chat-input::-webkit-input-placeholder {
+  .form-control::-webkit-input-placeholder, chat-window .panel-footer .chat-input::-webkit-input-placeholder {
     color: #999; }
-  .form-control[disabled], .chat-window .panel-footer [disabled].chat-input, .form-control[readonly], .chat-window .panel-footer [readonly].chat-input,
+  .form-control[disabled], chat-window .panel-footer [disabled].chat-input, .form-control[readonly], chat-window .panel-footer [readonly].chat-input,
   fieldset[disabled] .form-control,
-  fieldset[disabled] .chat-window .panel-footer .chat-input, .chat-window .panel-footer
+  fieldset[disabled] chat-window .panel-footer .chat-input, chat-window .panel-footer
   fieldset[disabled] .chat-input {
     background-color: #eeeeee;
     opacity: 1; }
-  .form-control[disabled], .chat-window .panel-footer [disabled].chat-input,
+  .form-control[disabled], chat-window .panel-footer [disabled].chat-input,
   fieldset[disabled] .form-control,
-  fieldset[disabled] .chat-window .panel-footer .chat-input, .chat-window .panel-footer
+  fieldset[disabled] chat-window .panel-footer .chat-input, chat-window .panel-footer
   fieldset[disabled] .chat-input {
     cursor: not-allowed; }
 
-textarea.form-control, .chat-window .panel-footer textarea.chat-input {
+textarea.form-control, chat-window .panel-footer textarea.chat-input {
   height: auto; }
 
 input[type="search"] {
   -webkit-appearance: none; }
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
-  input[type="date"].form-control, .chat-window .panel-footer input[type="date"].chat-input,
+  input[type="date"].form-control, chat-window .panel-footer input[type="date"].chat-input,
   input[type="time"].form-control,
-  .chat-window .panel-footer input[type="time"].chat-input,
+  chat-window .panel-footer input[type="time"].chat-input,
   input[type="datetime-local"].form-control,
-  .chat-window .panel-footer input[type="datetime-local"].chat-input,
+  chat-window .panel-footer input[type="datetime-local"].chat-input,
   input[type="month"].form-control,
-  .chat-window .panel-footer input[type="month"].chat-input {
+  chat-window .panel-footer input[type="month"].chat-input {
     line-height: 34px; }
   input[type="date"].input-sm, .input-group-sm > input[type="date"].form-control,
   .input-group-sm > input[type="date"].input-group-addon,
-  .input-group-sm > .input-group-btn > input[type="date"].btn, .chat-window .panel-footer
-  .input-group-sm > .input-group-btn > input[type="date"].btn-chat, .chat-window .panel-footer input[type="date"].chat-input,
+  .input-group-sm > .input-group-btn > input[type="date"].btn, chat-window .panel-footer
+  .input-group-sm > .input-group-btn > input[type="date"].btn-chat, chat-window .panel-footer input[type="date"].chat-input,
   .input-group-sm input[type="date"],
   input[type="time"].input-sm,
   .input-group-sm > input[type="time"].form-control,
   .input-group-sm > input[type="time"].input-group-addon,
   .input-group-sm > .input-group-btn > input[type="time"].btn,
-  .chat-window .panel-footer
+  chat-window .panel-footer
   .input-group-sm > .input-group-btn > input[type="time"].btn-chat,
-  .chat-window .panel-footer input[type="time"].chat-input,
+  chat-window .panel-footer input[type="time"].chat-input,
   .input-group-sm
   input[type="time"],
   input[type="datetime-local"].input-sm,
   .input-group-sm > input[type="datetime-local"].form-control,
   .input-group-sm > input[type="datetime-local"].input-group-addon,
   .input-group-sm > .input-group-btn > input[type="datetime-local"].btn,
-  .chat-window .panel-footer
+  chat-window .panel-footer
   .input-group-sm > .input-group-btn > input[type="datetime-local"].btn-chat,
-  .chat-window .panel-footer input[type="datetime-local"].chat-input,
+  chat-window .panel-footer input[type="datetime-local"].chat-input,
   .input-group-sm
   input[type="datetime-local"],
   input[type="month"].input-sm,
   .input-group-sm > input[type="month"].form-control,
   .input-group-sm > input[type="month"].input-group-addon,
   .input-group-sm > .input-group-btn > input[type="month"].btn,
-  .chat-window .panel-footer
+  chat-window .panel-footer
   .input-group-sm > .input-group-btn > input[type="month"].btn-chat,
-  .chat-window .panel-footer input[type="month"].chat-input,
+  chat-window .panel-footer input[type="month"].chat-input,
   .input-group-sm
   input[type="month"] {
     line-height: 30px; }
-  input[type="date"].input-lg, .input-group-lg > input[type="date"].form-control, .chat-window .panel-footer .input-group-lg > input[type="date"].chat-input,
+  input[type="date"].input-lg, .input-group-lg > input[type="date"].form-control, chat-window .panel-footer .input-group-lg > input[type="date"].chat-input,
   .input-group-lg > input[type="date"].input-group-addon,
-  .input-group-lg > .input-group-btn > input[type="date"].btn, .chat-window .panel-footer
+  .input-group-lg > .input-group-btn > input[type="date"].btn, chat-window .panel-footer
   .input-group-lg > .input-group-btn > input[type="date"].btn-chat,
   .input-group-lg input[type="date"],
   input[type="time"].input-lg,
   .input-group-lg > input[type="time"].form-control,
-  .chat-window .panel-footer .input-group-lg > input[type="time"].chat-input,
+  chat-window .panel-footer .input-group-lg > input[type="time"].chat-input,
   .input-group-lg > input[type="time"].input-group-addon,
   .input-group-lg > .input-group-btn > input[type="time"].btn,
-  .chat-window .panel-footer
+  chat-window .panel-footer
   .input-group-lg > .input-group-btn > input[type="time"].btn-chat,
   .input-group-lg
   input[type="time"],
   input[type="datetime-local"].input-lg,
   .input-group-lg > input[type="datetime-local"].form-control,
-  .chat-window .panel-footer .input-group-lg > input[type="datetime-local"].chat-input,
+  chat-window .panel-footer .input-group-lg > input[type="datetime-local"].chat-input,
   .input-group-lg > input[type="datetime-local"].input-group-addon,
   .input-group-lg > .input-group-btn > input[type="datetime-local"].btn,
-  .chat-window .panel-footer
+  chat-window .panel-footer
   .input-group-lg > .input-group-btn > input[type="datetime-local"].btn-chat,
   .input-group-lg
   input[type="datetime-local"],
   input[type="month"].input-lg,
   .input-group-lg > input[type="month"].form-control,
-  .chat-window .panel-footer .input-group-lg > input[type="month"].chat-input,
+  chat-window .panel-footer .input-group-lg > input[type="month"].chat-input,
   .input-group-lg > input[type="month"].input-group-addon,
   .input-group-lg > .input-group-btn > input[type="month"].btn,
-  .chat-window .panel-footer
+  chat-window .panel-footer
   .input-group-lg > .input-group-btn > input[type="month"].btn-chat,
   .input-group-lg
   input[type="month"] {
@@ -2498,20 +2498,20 @@ fieldset[disabled]
   padding-bottom: 7px;
   margin-bottom: 0;
   min-height: 34px; }
-  .form-control-static.input-lg, .input-group-lg > .form-control-static.form-control, .chat-window .panel-footer .input-group-lg > .form-control-static.chat-input,
+  .form-control-static.input-lg, .input-group-lg > .form-control-static.form-control, chat-window .panel-footer .input-group-lg > .form-control-static.chat-input,
   .input-group-lg > .form-control-static.input-group-addon,
-  .input-group-lg > .input-group-btn > .form-control-static.btn, .chat-window .panel-footer
+  .input-group-lg > .input-group-btn > .form-control-static.btn, chat-window .panel-footer
   .input-group-lg > .input-group-btn > .form-control-static.btn-chat, .form-control-static.input-sm, .input-group-sm > .form-control-static.form-control,
   .input-group-sm > .form-control-static.input-group-addon,
-  .input-group-sm > .input-group-btn > .form-control-static.btn, .chat-window .panel-footer
-  .input-group-sm > .input-group-btn > .form-control-static.btn-chat, .chat-window .panel-footer .form-control-static.chat-input {
+  .input-group-sm > .input-group-btn > .form-control-static.btn, chat-window .panel-footer
+  .input-group-sm > .input-group-btn > .form-control-static.btn-chat, chat-window .panel-footer .form-control-static.chat-input {
     padding-left: 0;
     padding-right: 0; }
 
 .input-sm, .input-group-sm > .form-control,
 .input-group-sm > .input-group-addon,
-.input-group-sm > .input-group-btn > .btn, .chat-window .panel-footer
-.input-group-sm > .input-group-btn > .btn-chat, .chat-window .panel-footer .chat-input {
+.input-group-sm > .input-group-btn > .btn, chat-window .panel-footer
+.input-group-sm > .input-group-btn > .btn-chat, chat-window .panel-footer .chat-input {
   height: 30px;
   padding: 5px 10px;
   font-size: 12px;
@@ -2520,38 +2520,38 @@ fieldset[disabled]
 
 select.input-sm, .input-group-sm > select.form-control,
 .input-group-sm > select.input-group-addon,
-.input-group-sm > .input-group-btn > select.btn, .chat-window .panel-footer
-.input-group-sm > .input-group-btn > select.btn-chat, .chat-window .panel-footer select.chat-input {
+.input-group-sm > .input-group-btn > select.btn, chat-window .panel-footer
+.input-group-sm > .input-group-btn > select.btn-chat, chat-window .panel-footer select.chat-input {
   height: 30px;
   line-height: 30px; }
 
 textarea.input-sm, .input-group-sm > textarea.form-control,
 .input-group-sm > textarea.input-group-addon,
-.input-group-sm > .input-group-btn > textarea.btn, .chat-window .panel-footer
-.input-group-sm > .input-group-btn > textarea.btn-chat, .chat-window .panel-footer textarea.chat-input,
+.input-group-sm > .input-group-btn > textarea.btn, chat-window .panel-footer
+.input-group-sm > .input-group-btn > textarea.btn-chat, chat-window .panel-footer textarea.chat-input,
 select[multiple].input-sm,
 .input-group-sm > select[multiple].form-control,
 .input-group-sm > select[multiple].input-group-addon,
 .input-group-sm > .input-group-btn > select[multiple].btn,
-.chat-window .panel-footer
+chat-window .panel-footer
 .input-group-sm > .input-group-btn > select[multiple].btn-chat,
-.chat-window .panel-footer select[multiple].chat-input {
+chat-window .panel-footer select[multiple].chat-input {
   height: auto; }
 
-.form-group-sm .form-control, .form-group-sm .chat-window .panel-footer .chat-input, .chat-window .panel-footer .form-group-sm .chat-input {
+.form-group-sm .form-control, .form-group-sm chat-window .panel-footer .chat-input, chat-window .panel-footer .form-group-sm .chat-input {
   height: 30px;
   padding: 5px 10px;
   font-size: 12px;
   line-height: 1.5;
   border-radius: 3px; }
 
-.form-group-sm select.form-control, .form-group-sm .chat-window .panel-footer select.chat-input, .chat-window .panel-footer .form-group-sm select.chat-input {
+.form-group-sm select.form-control, .form-group-sm chat-window .panel-footer select.chat-input, chat-window .panel-footer .form-group-sm select.chat-input {
   height: 30px;
   line-height: 30px; }
 
-.form-group-sm textarea.form-control, .form-group-sm .chat-window .panel-footer textarea.chat-input, .chat-window .panel-footer .form-group-sm textarea.chat-input,
+.form-group-sm textarea.form-control, .form-group-sm chat-window .panel-footer textarea.chat-input, chat-window .panel-footer .form-group-sm textarea.chat-input,
 .form-group-sm select[multiple].form-control,
-.form-group-sm .chat-window .panel-footer select[multiple].chat-input, .chat-window .panel-footer
+.form-group-sm chat-window .panel-footer select[multiple].chat-input, chat-window .panel-footer
 .form-group-sm select[multiple].chat-input {
   height: auto; }
 
@@ -2562,9 +2562,9 @@ select[multiple].input-sm,
   font-size: 12px;
   line-height: 1.5; }
 
-.input-lg, .input-group-lg > .form-control, .chat-window .panel-footer .input-group-lg > .chat-input,
+.input-lg, .input-group-lg > .form-control, chat-window .panel-footer .input-group-lg > .chat-input,
 .input-group-lg > .input-group-addon,
-.input-group-lg > .input-group-btn > .btn, .chat-window .panel-footer
+.input-group-lg > .input-group-btn > .btn, chat-window .panel-footer
 .input-group-lg > .input-group-btn > .btn-chat {
   height: 46px;
   padding: 10px 16px;
@@ -2572,40 +2572,40 @@ select[multiple].input-sm,
   line-height: 1.33333;
   border-radius: 6px; }
 
-select.input-lg, .input-group-lg > select.form-control, .chat-window .panel-footer .input-group-lg > select.chat-input,
+select.input-lg, .input-group-lg > select.form-control, chat-window .panel-footer .input-group-lg > select.chat-input,
 .input-group-lg > select.input-group-addon,
-.input-group-lg > .input-group-btn > select.btn, .chat-window .panel-footer
+.input-group-lg > .input-group-btn > select.btn, chat-window .panel-footer
 .input-group-lg > .input-group-btn > select.btn-chat {
   height: 46px;
   line-height: 46px; }
 
-textarea.input-lg, .input-group-lg > textarea.form-control, .chat-window .panel-footer .input-group-lg > textarea.chat-input,
+textarea.input-lg, .input-group-lg > textarea.form-control, chat-window .panel-footer .input-group-lg > textarea.chat-input,
 .input-group-lg > textarea.input-group-addon,
-.input-group-lg > .input-group-btn > textarea.btn, .chat-window .panel-footer
+.input-group-lg > .input-group-btn > textarea.btn, chat-window .panel-footer
 .input-group-lg > .input-group-btn > textarea.btn-chat,
 select[multiple].input-lg,
 .input-group-lg > select[multiple].form-control,
-.chat-window .panel-footer .input-group-lg > select[multiple].chat-input,
+chat-window .panel-footer .input-group-lg > select[multiple].chat-input,
 .input-group-lg > select[multiple].input-group-addon,
 .input-group-lg > .input-group-btn > select[multiple].btn,
-.chat-window .panel-footer
+chat-window .panel-footer
 .input-group-lg > .input-group-btn > select[multiple].btn-chat {
   height: auto; }
 
-.form-group-lg .form-control, .form-group-lg .chat-window .panel-footer .chat-input, .chat-window .panel-footer .form-group-lg .chat-input {
+.form-group-lg .form-control, .form-group-lg chat-window .panel-footer .chat-input, chat-window .panel-footer .form-group-lg .chat-input {
   height: 46px;
   padding: 10px 16px;
   font-size: 18px;
   line-height: 1.33333;
   border-radius: 6px; }
 
-.form-group-lg select.form-control, .form-group-lg .chat-window .panel-footer select.chat-input, .chat-window .panel-footer .form-group-lg select.chat-input {
+.form-group-lg select.form-control, .form-group-lg chat-window .panel-footer select.chat-input, chat-window .panel-footer .form-group-lg select.chat-input {
   height: 46px;
   line-height: 46px; }
 
-.form-group-lg textarea.form-control, .form-group-lg .chat-window .panel-footer textarea.chat-input, .chat-window .panel-footer .form-group-lg textarea.chat-input,
+.form-group-lg textarea.form-control, .form-group-lg chat-window .panel-footer textarea.chat-input, chat-window .panel-footer .form-group-lg textarea.chat-input,
 .form-group-lg select[multiple].form-control,
-.form-group-lg .chat-window .panel-footer select[multiple].chat-input, .chat-window .panel-footer
+.form-group-lg chat-window .panel-footer select[multiple].chat-input, chat-window .panel-footer
 .form-group-lg select[multiple].chat-input {
   height: auto; }
 
@@ -2618,7 +2618,7 @@ select[multiple].input-lg,
 
 .has-feedback {
   position: relative; }
-  .has-feedback .form-control, .has-feedback .chat-window .panel-footer .chat-input, .chat-window .panel-footer .has-feedback .chat-input {
+  .has-feedback .form-control, .has-feedback chat-window .panel-footer .chat-input, chat-window .panel-footer .has-feedback .chat-input {
     padding-right: 42.5px; }
 
 .form-control-feedback {
@@ -2633,25 +2633,25 @@ select[multiple].input-lg,
   text-align: center;
   pointer-events: none; }
 
-.input-lg + .form-control-feedback, .input-group-lg > .form-control + .form-control-feedback, .chat-window .panel-footer .input-group-lg > .chat-input + .form-control-feedback,
+.input-lg + .form-control-feedback, .input-group-lg > .form-control + .form-control-feedback, chat-window .panel-footer .input-group-lg > .chat-input + .form-control-feedback,
 .input-group-lg > .input-group-addon + .form-control-feedback,
-.input-group-lg > .input-group-btn > .btn + .form-control-feedback, .chat-window .panel-footer
+.input-group-lg > .input-group-btn > .btn + .form-control-feedback, chat-window .panel-footer
 .input-group-lg > .input-group-btn > .btn-chat + .form-control-feedback,
 .input-group-lg + .form-control-feedback,
 .form-group-lg .form-control + .form-control-feedback,
-.form-group-lg .chat-window .panel-footer .chat-input + .form-control-feedback, .chat-window .panel-footer
+.form-group-lg chat-window .panel-footer .chat-input + .form-control-feedback, chat-window .panel-footer
 .form-group-lg .chat-input + .form-control-feedback {
   width: 46px;
   height: 46px;
   line-height: 46px; }
 
-.input-sm + .form-control-feedback, .input-group-sm > .form-control + .form-control-feedback, .chat-window .panel-footer .input-group-sm > .chat-input + .form-control-feedback,
+.input-sm + .form-control-feedback, .input-group-sm > .form-control + .form-control-feedback, chat-window .panel-footer .input-group-sm > .chat-input + .form-control-feedback,
 .input-group-sm > .input-group-addon + .form-control-feedback,
-.input-group-sm > .input-group-btn > .btn + .form-control-feedback, .chat-window .panel-footer
-.input-group-sm > .input-group-btn > .btn-chat + .form-control-feedback, .chat-window .panel-footer .chat-input + .form-control-feedback,
+.input-group-sm > .input-group-btn > .btn + .form-control-feedback, chat-window .panel-footer
+.input-group-sm > .input-group-btn > .btn-chat + .form-control-feedback, chat-window .panel-footer .chat-input + .form-control-feedback,
 .input-group-sm + .form-control-feedback,
 .form-group-sm .form-control + .form-control-feedback,
-.form-group-sm .chat-window .panel-footer .chat-input + .form-control-feedback, .chat-window .panel-footer
+.form-group-sm chat-window .panel-footer .chat-input + .form-control-feedback, chat-window .panel-footer
 .form-group-sm .chat-input + .form-control-feedback {
   width: 30px;
   height: 30px;
@@ -2669,11 +2669,11 @@ select[multiple].input-lg,
 .has-success.checkbox-inline label {
   color: #3c763d; }
 
-.has-success .form-control, .has-success .chat-window .panel-footer .chat-input, .chat-window .panel-footer .has-success .chat-input {
+.has-success .form-control, .has-success chat-window .panel-footer .chat-input, chat-window .panel-footer .has-success .chat-input {
   border-color: #3c763d;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); }
-  .has-success .form-control:focus, .has-success .chat-window .panel-footer .chat-input:focus, .chat-window .panel-footer .has-success .chat-input:focus {
+  .has-success .form-control:focus, .has-success chat-window .panel-footer .chat-input:focus, chat-window .panel-footer .has-success .chat-input:focus {
     border-color: #2b542c;
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #67b168;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #67b168; }
@@ -2698,11 +2698,11 @@ select[multiple].input-lg,
 .has-warning.checkbox-inline label {
   color: #8a6d3b; }
 
-.has-warning .form-control, .has-warning .chat-window .panel-footer .chat-input, .chat-window .panel-footer .has-warning .chat-input {
+.has-warning .form-control, .has-warning chat-window .panel-footer .chat-input, chat-window .panel-footer .has-warning .chat-input {
   border-color: #8a6d3b;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); }
-  .has-warning .form-control:focus, .has-warning .chat-window .panel-footer .chat-input:focus, .chat-window .panel-footer .has-warning .chat-input:focus {
+  .has-warning .form-control:focus, .has-warning chat-window .panel-footer .chat-input:focus, chat-window .panel-footer .has-warning .chat-input:focus {
     border-color: #66512c;
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #c0a16b;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #c0a16b; }
@@ -2727,11 +2727,11 @@ select[multiple].input-lg,
 .has-error.checkbox-inline label {
   color: #a94442; }
 
-.has-error .form-control, .has-error .chat-window .panel-footer .chat-input, .chat-window .panel-footer .has-error .chat-input {
+.has-error .form-control, .has-error chat-window .panel-footer .chat-input, chat-window .panel-footer .has-error .chat-input {
   border-color: #a94442;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); }
-  .has-error .form-control:focus, .has-error .chat-window .panel-footer .chat-input:focus, .chat-window .panel-footer .has-error .chat-input:focus {
+  .has-error .form-control:focus, .has-error chat-window .panel-footer .chat-input:focus, chat-window .panel-footer .has-error .chat-input:focus {
     border-color: #843534;
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483; }
@@ -2761,7 +2761,7 @@ select[multiple].input-lg,
     display: inline-block;
     margin-bottom: 0;
     vertical-align: middle; }
-  .form-inline .form-control, .form-inline .chat-window .panel-footer .chat-input, .chat-window .panel-footer .form-inline .chat-input {
+  .form-inline .form-control, .form-inline chat-window .panel-footer .chat-input, chat-window .panel-footer .form-inline .chat-input {
     display: inline-block;
     width: auto;
     vertical-align: middle; }
@@ -2773,10 +2773,10 @@ select[multiple].input-lg,
     .form-inline .input-group .input-group-addon,
     .form-inline .input-group .input-group-btn,
     .form-inline .input-group .form-control,
-    .form-inline .input-group .chat-window .panel-footer .chat-input, .chat-window .panel-footer
+    .form-inline .input-group chat-window .panel-footer .chat-input, chat-window .panel-footer
     .form-inline .input-group .chat-input {
       width: auto; }
-  .form-inline .input-group > .form-control, .form-inline .chat-window .panel-footer .input-group > .chat-input, .chat-window .panel-footer .form-inline .input-group > .chat-input {
+  .form-inline .input-group > .form-control, .form-inline chat-window .panel-footer .input-group > .chat-input, chat-window .panel-footer .form-inline .input-group > .chat-input {
     width: 100%; }
   .form-inline .control-label {
     margin-bottom: 0;
@@ -2837,7 +2837,7 @@ select[multiple].input-lg,
     padding-top: 6px;
     font-size: 12px; } }
 
-.btn, .chat-window .panel-footer .btn-chat {
+.btn, chat-window .panel-footer .btn-chat {
   display: inline-block;
   margin-bottom: 0;
   font-weight: normal;
@@ -2856,21 +2856,21 @@ select[multiple].input-lg,
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none; }
-  .btn:focus, .chat-window .panel-footer .btn-chat:focus, .btn.focus, .chat-window .panel-footer .focus.btn-chat, .btn:active:focus, .chat-window .panel-footer .btn-chat:active:focus, .btn:active.focus, .chat-window .panel-footer .btn-chat:active.focus, .btn.active:focus, .chat-window .panel-footer .active.btn-chat:focus, .btn.active.focus, .chat-window .panel-footer .active.focus.btn-chat {
+  .btn:focus, chat-window .panel-footer .btn-chat:focus, .btn.focus, chat-window .panel-footer .focus.btn-chat, .btn:active:focus, chat-window .panel-footer .btn-chat:active:focus, .btn:active.focus, chat-window .panel-footer .btn-chat:active.focus, .btn.active:focus, chat-window .panel-footer .active.btn-chat:focus, .btn.active.focus, chat-window .panel-footer .active.focus.btn-chat {
     outline: thin dotted;
     outline: 5px auto -webkit-focus-ring-color;
     outline-offset: -2px; }
-  .btn:hover, .chat-window .panel-footer .btn-chat:hover, .btn:focus, .chat-window .panel-footer .btn-chat:focus, .btn.focus, .chat-window .panel-footer .focus.btn-chat {
+  .btn:hover, chat-window .panel-footer .btn-chat:hover, .btn:focus, chat-window .panel-footer .btn-chat:focus, .btn.focus, chat-window .panel-footer .focus.btn-chat {
     color: #333;
     text-decoration: none; }
-  .btn:active, .chat-window .panel-footer .btn-chat:active, .btn.active, .chat-window .panel-footer .active.btn-chat {
+  .btn:active, chat-window .panel-footer .btn-chat:active, .btn.active, chat-window .panel-footer .active.btn-chat {
     outline: 0;
     background-image: none;
     -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
     box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125); }
-  .btn.disabled, .chat-window .panel-footer .disabled.btn-chat, .btn[disabled], .chat-window .panel-footer [disabled].btn-chat,
+  .btn.disabled, chat-window .panel-footer .disabled.btn-chat, .btn[disabled], chat-window .panel-footer [disabled].btn-chat,
   fieldset[disabled] .btn,
-  fieldset[disabled] .chat-window .panel-footer .btn-chat, .chat-window .panel-footer
+  fieldset[disabled] chat-window .panel-footer .btn-chat, chat-window .panel-footer
   fieldset[disabled] .btn-chat {
     cursor: not-allowed;
     opacity: 0.65;
@@ -2878,9 +2878,9 @@ select[multiple].input-lg,
     -webkit-box-shadow: none;
     box-shadow: none; }
 
-a.btn.disabled, .chat-window .panel-footer a.disabled.btn-chat,
+a.btn.disabled, chat-window .panel-footer a.disabled.btn-chat,
 fieldset[disabled] a.btn,
-fieldset[disabled] .chat-window .panel-footer a.btn-chat, .chat-window .panel-footer
+fieldset[disabled] chat-window .panel-footer a.btn-chat, chat-window .panel-footer
 fieldset[disabled] a.btn-chat {
   pointer-events: none; }
 
@@ -2924,60 +2924,60 @@ fieldset[disabled] a.btn-chat {
     color: #fff;
     background-color: #333; }
 
-.btn-primary, .chat-window .panel-footer .btn-chat {
+.btn-primary, chat-window .panel-footer .btn-chat {
   color: #fff;
   background-color: #337ab7;
   border-color: #2e6da4; }
-  .btn-primary:focus, .chat-window .panel-footer .btn-chat:focus, .btn-primary.focus, .chat-window .panel-footer .focus.btn-chat {
+  .btn-primary:focus, chat-window .panel-footer .btn-chat:focus, .btn-primary.focus, chat-window .panel-footer .focus.btn-chat {
     color: #fff;
     background-color: #286090;
     border-color: #122b40; }
-  .btn-primary:hover, .chat-window .panel-footer .btn-chat:hover {
+  .btn-primary:hover, chat-window .panel-footer .btn-chat:hover {
     color: #fff;
     background-color: #286090;
     border-color: #204d74; }
-  .btn-primary:active, .chat-window .panel-footer .btn-chat:active, .btn-primary.active, .chat-window .panel-footer .active.btn-chat,
-  .open > .btn-primary.dropdown-toggle, .chat-window .panel-footer
+  .btn-primary:active, chat-window .panel-footer .btn-chat:active, .btn-primary.active, chat-window .panel-footer .active.btn-chat,
+  .open > .btn-primary.dropdown-toggle, chat-window .panel-footer
   .open > .dropdown-toggle.btn-chat {
     color: #fff;
     background-color: #286090;
     border-color: #204d74; }
-    .btn-primary:active:hover, .chat-window .panel-footer .btn-chat:active:hover, .btn-primary:active:focus, .chat-window .panel-footer .btn-chat:active:focus, .btn-primary:active.focus, .chat-window .panel-footer .btn-chat:active.focus, .btn-primary.active:hover, .chat-window .panel-footer .active.btn-chat:hover, .btn-primary.active:focus, .chat-window .panel-footer .active.btn-chat:focus, .btn-primary.active.focus, .chat-window .panel-footer .active.focus.btn-chat,
-    .open > .btn-primary.dropdown-toggle:hover, .chat-window .panel-footer
+    .btn-primary:active:hover, chat-window .panel-footer .btn-chat:active:hover, .btn-primary:active:focus, chat-window .panel-footer .btn-chat:active:focus, .btn-primary:active.focus, chat-window .panel-footer .btn-chat:active.focus, .btn-primary.active:hover, chat-window .panel-footer .active.btn-chat:hover, .btn-primary.active:focus, chat-window .panel-footer .active.btn-chat:focus, .btn-primary.active.focus, chat-window .panel-footer .active.focus.btn-chat,
+    .open > .btn-primary.dropdown-toggle:hover, chat-window .panel-footer
     .open > .dropdown-toggle.btn-chat:hover,
-    .open > .btn-primary.dropdown-toggle:focus, .chat-window .panel-footer
+    .open > .btn-primary.dropdown-toggle:focus, chat-window .panel-footer
     .open > .dropdown-toggle.btn-chat:focus,
-    .open > .btn-primary.dropdown-toggle.focus, .chat-window .panel-footer
+    .open > .btn-primary.dropdown-toggle.focus, chat-window .panel-footer
     .open > .dropdown-toggle.focus.btn-chat {
       color: #fff;
       background-color: #204d74;
       border-color: #122b40; }
-  .btn-primary:active, .chat-window .panel-footer .btn-chat:active, .btn-primary.active, .chat-window .panel-footer .active.btn-chat,
-  .open > .btn-primary.dropdown-toggle, .chat-window .panel-footer
+  .btn-primary:active, chat-window .panel-footer .btn-chat:active, .btn-primary.active, chat-window .panel-footer .active.btn-chat,
+  .open > .btn-primary.dropdown-toggle, chat-window .panel-footer
   .open > .dropdown-toggle.btn-chat {
     background-image: none; }
-  .btn-primary.disabled, .chat-window .panel-footer .disabled.btn-chat, .btn-primary.disabled:hover, .chat-window .panel-footer .disabled.btn-chat:hover, .btn-primary.disabled:focus, .chat-window .panel-footer .disabled.btn-chat:focus, .btn-primary.disabled.focus, .chat-window .panel-footer .disabled.focus.btn-chat, .btn-primary.disabled:active, .chat-window .panel-footer .disabled.btn-chat:active, .btn-primary.disabled.active, .chat-window .panel-footer .disabled.active.btn-chat, .btn-primary[disabled], .chat-window .panel-footer [disabled].btn-chat, .btn-primary[disabled]:hover, .chat-window .panel-footer [disabled].btn-chat:hover, .btn-primary[disabled]:focus, .chat-window .panel-footer [disabled].btn-chat:focus, .btn-primary[disabled].focus, .chat-window .panel-footer [disabled].focus.btn-chat, .btn-primary[disabled]:active, .chat-window .panel-footer [disabled].btn-chat:active, .btn-primary[disabled].active, .chat-window .panel-footer [disabled].active.btn-chat,
+  .btn-primary.disabled, chat-window .panel-footer .disabled.btn-chat, .btn-primary.disabled:hover, chat-window .panel-footer .disabled.btn-chat:hover, .btn-primary.disabled:focus, chat-window .panel-footer .disabled.btn-chat:focus, .btn-primary.disabled.focus, chat-window .panel-footer .disabled.focus.btn-chat, .btn-primary.disabled:active, chat-window .panel-footer .disabled.btn-chat:active, .btn-primary.disabled.active, chat-window .panel-footer .disabled.active.btn-chat, .btn-primary[disabled], chat-window .panel-footer [disabled].btn-chat, .btn-primary[disabled]:hover, chat-window .panel-footer [disabled].btn-chat:hover, .btn-primary[disabled]:focus, chat-window .panel-footer [disabled].btn-chat:focus, .btn-primary[disabled].focus, chat-window .panel-footer [disabled].focus.btn-chat, .btn-primary[disabled]:active, chat-window .panel-footer [disabled].btn-chat:active, .btn-primary[disabled].active, chat-window .panel-footer [disabled].active.btn-chat,
   fieldset[disabled] .btn-primary,
-  fieldset[disabled] .chat-window .panel-footer .btn-chat, .chat-window .panel-footer
+  fieldset[disabled] chat-window .panel-footer .btn-chat, chat-window .panel-footer
   fieldset[disabled] .btn-chat,
   fieldset[disabled] .btn-primary:hover,
-  fieldset[disabled] .chat-window .panel-footer .btn-chat:hover, .chat-window .panel-footer
+  fieldset[disabled] chat-window .panel-footer .btn-chat:hover, chat-window .panel-footer
   fieldset[disabled] .btn-chat:hover,
   fieldset[disabled] .btn-primary:focus,
-  fieldset[disabled] .chat-window .panel-footer .btn-chat:focus, .chat-window .panel-footer
+  fieldset[disabled] chat-window .panel-footer .btn-chat:focus, chat-window .panel-footer
   fieldset[disabled] .btn-chat:focus,
   fieldset[disabled] .btn-primary.focus,
-  fieldset[disabled] .chat-window .panel-footer .focus.btn-chat, .chat-window .panel-footer
+  fieldset[disabled] chat-window .panel-footer .focus.btn-chat, chat-window .panel-footer
   fieldset[disabled] .focus.btn-chat,
   fieldset[disabled] .btn-primary:active,
-  fieldset[disabled] .chat-window .panel-footer .btn-chat:active, .chat-window .panel-footer
+  fieldset[disabled] chat-window .panel-footer .btn-chat:active, chat-window .panel-footer
   fieldset[disabled] .btn-chat:active,
   fieldset[disabled] .btn-primary.active,
-  fieldset[disabled] .chat-window .panel-footer .active.btn-chat, .chat-window .panel-footer
+  fieldset[disabled] chat-window .panel-footer .active.btn-chat, chat-window .panel-footer
   fieldset[disabled] .active.btn-chat {
     background-color: #337ab7;
     border-color: #2e6da4; }
-  .btn-primary .badge, .chat-window .panel-footer .btn-chat .badge {
+  .btn-primary .badge, chat-window .panel-footer .btn-chat .badge {
     color: #337ab7;
     background-color: #fff; }
 
@@ -3162,19 +3162,19 @@ fieldset[disabled] a.btn-chat {
     color: #777777;
     text-decoration: none; }
 
-.btn-lg, .btn-group-lg > .btn, .chat-window .panel-footer .btn-group-lg > .btn-chat {
+.btn-lg, .btn-group-lg > .btn, chat-window .panel-footer .btn-group-lg > .btn-chat {
   padding: 10px 16px;
   font-size: 18px;
   line-height: 1.33333;
   border-radius: 6px; }
 
-.btn-sm, .btn-group-sm > .btn, .chat-window .panel-footer .btn-chat {
+.btn-sm, .btn-group-sm > .btn, chat-window .panel-footer .btn-chat {
   padding: 5px 10px;
   font-size: 12px;
   line-height: 1.5;
   border-radius: 3px; }
 
-.btn-xs, .btn-group-xs > .btn, .chat-window .panel-footer .btn-group-xs > .btn-chat {
+.btn-xs, .btn-group-xs > .btn, chat-window .panel-footer .btn-group-xs > .btn-chat {
   padding: 1px 5px;
   font-size: 12px;
   line-height: 1.5;
@@ -3358,28 +3358,28 @@ tbody.collapse.in {
   position: relative;
   display: inline-block;
   vertical-align: middle; }
-  .btn-group > .btn, .chat-window .panel-footer .btn-group > .btn-chat,
-  .btn-group-vertical > .btn, .chat-window .panel-footer
+  .btn-group > .btn, chat-window .panel-footer .btn-group > .btn-chat,
+  .btn-group-vertical > .btn, chat-window .panel-footer
   .btn-group-vertical > .btn-chat {
     position: relative;
     float: left; }
-    .btn-group > .btn:hover, .chat-window .panel-footer .btn-group > .btn-chat:hover, .btn-group > .btn:focus, .chat-window .panel-footer .btn-group > .btn-chat:focus, .btn-group > .btn:active, .chat-window .panel-footer .btn-group > .btn-chat:active, .btn-group > .btn.active, .chat-window .panel-footer .btn-group > .active.btn-chat,
-    .btn-group-vertical > .btn:hover, .chat-window .panel-footer
+    .btn-group > .btn:hover, chat-window .panel-footer .btn-group > .btn-chat:hover, .btn-group > .btn:focus, chat-window .panel-footer .btn-group > .btn-chat:focus, .btn-group > .btn:active, chat-window .panel-footer .btn-group > .btn-chat:active, .btn-group > .btn.active, chat-window .panel-footer .btn-group > .active.btn-chat,
+    .btn-group-vertical > .btn:hover, chat-window .panel-footer
     .btn-group-vertical > .btn-chat:hover,
-    .btn-group-vertical > .btn:focus, .chat-window .panel-footer
+    .btn-group-vertical > .btn:focus, chat-window .panel-footer
     .btn-group-vertical > .btn-chat:focus,
-    .btn-group-vertical > .btn:active, .chat-window .panel-footer
+    .btn-group-vertical > .btn:active, chat-window .panel-footer
     .btn-group-vertical > .btn-chat:active,
-    .btn-group-vertical > .btn.active, .chat-window .panel-footer
+    .btn-group-vertical > .btn.active, chat-window .panel-footer
     .btn-group-vertical > .active.btn-chat {
       z-index: 2; }
 
-.btn-group .btn + .btn, .btn-group .chat-window .panel-footer .btn-chat + .btn, .chat-window .panel-footer .btn-group .btn-chat + .btn, .btn-group .chat-window .panel-footer .btn + .btn-chat, .chat-window .panel-footer .btn-group .btn + .btn-chat, .btn-group .chat-window .panel-footer .btn-chat + .btn-chat, .chat-window .panel-footer .btn-group .btn-chat + .btn-chat,
+.btn-group .btn + .btn, .btn-group chat-window .panel-footer .btn-chat + .btn, chat-window .panel-footer .btn-group .btn-chat + .btn, .btn-group chat-window .panel-footer .btn + .btn-chat, chat-window .panel-footer .btn-group .btn + .btn-chat, .btn-group chat-window .panel-footer .btn-chat + .btn-chat, chat-window .panel-footer .btn-group .btn-chat + .btn-chat,
 .btn-group .btn + .btn-group,
-.btn-group .chat-window .panel-footer .btn-chat + .btn-group, .chat-window .panel-footer
+.btn-group chat-window .panel-footer .btn-chat + .btn-group, chat-window .panel-footer
 .btn-group .btn-chat + .btn-group,
 .btn-group .btn-group + .btn,
-.btn-group .chat-window .panel-footer .btn-group + .btn-chat, .chat-window .panel-footer
+.btn-group chat-window .panel-footer .btn-group + .btn-chat, chat-window .panel-footer
 .btn-group .btn-group + .btn-chat,
 .btn-group .btn-group + .btn-group {
   margin-left: -1px; }
@@ -3391,25 +3391,25 @@ tbody.collapse.in {
     display: table; }
   .btn-toolbar:after {
     clear: both; }
-  .btn-toolbar .btn, .btn-toolbar .chat-window .panel-footer .btn-chat, .chat-window .panel-footer .btn-toolbar .btn-chat,
+  .btn-toolbar .btn, .btn-toolbar chat-window .panel-footer .btn-chat, chat-window .panel-footer .btn-toolbar .btn-chat,
   .btn-toolbar .btn-group,
   .btn-toolbar .input-group {
     float: left; }
-  .btn-toolbar > .btn, .chat-window .panel-footer .btn-toolbar > .btn-chat,
+  .btn-toolbar > .btn, chat-window .panel-footer .btn-toolbar > .btn-chat,
   .btn-toolbar > .btn-group,
   .btn-toolbar > .input-group {
     margin-left: 5px; }
 
-.btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle), .chat-window .panel-footer .btn-group > .btn-chat:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+.btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle), chat-window .panel-footer .btn-group > .btn-chat:not(:first-child):not(:last-child):not(.dropdown-toggle) {
   border-radius: 0; }
 
-.btn-group > .btn:first-child, .chat-window .panel-footer .btn-group > .btn-chat:first-child {
+.btn-group > .btn:first-child, chat-window .panel-footer .btn-group > .btn-chat:first-child {
   margin-left: 0; }
-  .btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle), .chat-window .panel-footer .btn-group > .btn-chat:first-child:not(:last-child):not(.dropdown-toggle) {
+  .btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle), chat-window .panel-footer .btn-group > .btn-chat:first-child:not(:last-child):not(.dropdown-toggle) {
     border-bottom-right-radius: 0;
     border-top-right-radius: 0; }
 
-.btn-group > .btn:last-child:not(:first-child), .chat-window .panel-footer .btn-group > .btn-chat:last-child:not(:first-child),
+.btn-group > .btn:last-child:not(:first-child), chat-window .panel-footer .btn-group > .btn-chat:last-child:not(:first-child),
 .btn-group > .dropdown-toggle:not(:first-child) {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0; }
@@ -3417,15 +3417,15 @@ tbody.collapse.in {
 .btn-group > .btn-group {
   float: left; }
 
-.btn-group > .btn-group:not(:first-child):not(:last-child) > .btn, .chat-window .panel-footer .btn-group > .btn-group:not(:first-child):not(:last-child) > .btn-chat {
+.btn-group > .btn-group:not(:first-child):not(:last-child) > .btn, chat-window .panel-footer .btn-group > .btn-group:not(:first-child):not(:last-child) > .btn-chat {
   border-radius: 0; }
 
-.btn-group > .btn-group:first-child:not(:last-child) > .btn:last-child, .chat-window .panel-footer .btn-group > .btn-group:first-child:not(:last-child) > .btn-chat:last-child,
+.btn-group > .btn-group:first-child:not(:last-child) > .btn:last-child, chat-window .panel-footer .btn-group > .btn-group:first-child:not(:last-child) > .btn-chat:last-child,
 .btn-group > .btn-group:first-child:not(:last-child) > .dropdown-toggle {
   border-bottom-right-radius: 0;
   border-top-right-radius: 0; }
 
-.btn-group > .btn-group:last-child:not(:first-child) > .btn:first-child, .chat-window .panel-footer .btn-group > .btn-group:last-child:not(:first-child) > .btn-chat:first-child {
+.btn-group > .btn-group:last-child:not(:first-child) > .btn:first-child, chat-window .panel-footer .btn-group > .btn-group:last-child:not(:first-child) > .btn-chat:first-child {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0; }
 
@@ -3433,11 +3433,11 @@ tbody.collapse.in {
 .btn-group.open .dropdown-toggle {
   outline: 0; }
 
-.btn-group > .btn + .dropdown-toggle, .chat-window .panel-footer .btn-group > .btn-chat + .dropdown-toggle {
+.btn-group > .btn + .dropdown-toggle, chat-window .panel-footer .btn-group > .btn-chat + .dropdown-toggle {
   padding-left: 8px;
   padding-right: 8px; }
 
-.btn-group > .btn-lg + .dropdown-toggle, .btn-group-lg.btn-group > .btn + .dropdown-toggle, .chat-window .panel-footer .btn-group-lg.btn-group > .btn-chat + .dropdown-toggle {
+.btn-group > .btn-lg + .dropdown-toggle, .btn-group-lg.btn-group > .btn + .dropdown-toggle, chat-window .panel-footer .btn-group-lg.btn-group > .btn-chat + .dropdown-toggle {
   padding-left: 12px;
   padding-right: 12px; }
 
@@ -3448,19 +3448,19 @@ tbody.collapse.in {
     -webkit-box-shadow: none;
     box-shadow: none; }
 
-.btn .caret, .chat-window .panel-footer .btn-chat .caret {
+.btn .caret, chat-window .panel-footer .btn-chat .caret {
   margin-left: 0; }
 
-.btn-lg .caret, .btn-group-lg > .btn .caret, .chat-window .panel-footer .btn-group-lg > .btn-chat .caret {
+.btn-lg .caret, .btn-group-lg > .btn .caret, chat-window .panel-footer .btn-group-lg > .btn-chat .caret {
   border-width: 5px 5px 0;
   border-bottom-width: 0; }
 
-.dropup .btn-lg .caret, .dropup .btn-group-lg > .btn .caret, .dropup .chat-window .panel-footer .btn-group-lg > .btn-chat .caret, .chat-window .panel-footer .dropup .btn-group-lg > .btn-chat .caret {
+.dropup .btn-lg .caret, .dropup .btn-group-lg > .btn .caret, .dropup chat-window .panel-footer .btn-group-lg > .btn-chat .caret, chat-window .panel-footer .dropup .btn-group-lg > .btn-chat .caret {
   border-width: 0 5px 5px; }
 
-.btn-group-vertical > .btn, .chat-window .panel-footer .btn-group-vertical > .btn-chat,
+.btn-group-vertical > .btn, chat-window .panel-footer .btn-group-vertical > .btn-chat,
 .btn-group-vertical > .btn-group,
-.btn-group-vertical > .btn-group > .btn, .chat-window .panel-footer
+.btn-group-vertical > .btn-group > .btn, chat-window .panel-footer
 .btn-group-vertical > .btn-group > .btn-chat {
   display: block;
   float: none;
@@ -3474,40 +3474,40 @@ tbody.collapse.in {
 .btn-group-vertical > .btn-group:after {
   clear: both; }
 
-.btn-group-vertical > .btn-group > .btn, .chat-window .panel-footer .btn-group-vertical > .btn-group > .btn-chat {
+.btn-group-vertical > .btn-group > .btn, chat-window .panel-footer .btn-group-vertical > .btn-group > .btn-chat {
   float: none; }
 
-.btn-group-vertical > .btn + .btn, .chat-window .panel-footer .btn-group-vertical > .btn-chat + .btn, .chat-window .panel-footer .btn-group-vertical > .btn + .btn-chat, .chat-window .panel-footer .btn-group-vertical > .btn-chat + .btn-chat,
-.btn-group-vertical > .btn + .btn-group, .chat-window .panel-footer
+.btn-group-vertical > .btn + .btn, chat-window .panel-footer .btn-group-vertical > .btn-chat + .btn, chat-window .panel-footer .btn-group-vertical > .btn + .btn-chat, chat-window .panel-footer .btn-group-vertical > .btn-chat + .btn-chat,
+.btn-group-vertical > .btn + .btn-group, chat-window .panel-footer
 .btn-group-vertical > .btn-chat + .btn-group,
-.btn-group-vertical > .btn-group + .btn, .chat-window .panel-footer
+.btn-group-vertical > .btn-group + .btn, chat-window .panel-footer
 .btn-group-vertical > .btn-group + .btn-chat,
 .btn-group-vertical > .btn-group + .btn-group {
   margin-top: -1px;
   margin-left: 0; }
 
-.btn-group-vertical > .btn:not(:first-child):not(:last-child), .chat-window .panel-footer .btn-group-vertical > .btn-chat:not(:first-child):not(:last-child) {
+.btn-group-vertical > .btn:not(:first-child):not(:last-child), chat-window .panel-footer .btn-group-vertical > .btn-chat:not(:first-child):not(:last-child) {
   border-radius: 0; }
 
-.btn-group-vertical > .btn:first-child:not(:last-child), .chat-window .panel-footer .btn-group-vertical > .btn-chat:first-child:not(:last-child) {
+.btn-group-vertical > .btn:first-child:not(:last-child), chat-window .panel-footer .btn-group-vertical > .btn-chat:first-child:not(:last-child) {
   border-top-right-radius: 4px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0; }
 
-.btn-group-vertical > .btn:last-child:not(:first-child), .chat-window .panel-footer .btn-group-vertical > .btn-chat:last-child:not(:first-child) {
+.btn-group-vertical > .btn:last-child:not(:first-child), chat-window .panel-footer .btn-group-vertical > .btn-chat:last-child:not(:first-child) {
   border-bottom-left-radius: 4px;
   border-top-right-radius: 0;
   border-top-left-radius: 0; }
 
-.btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn, .chat-window .panel-footer .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn-chat {
+.btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn, chat-window .panel-footer .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn-chat {
   border-radius: 0; }
 
-.btn-group-vertical > .btn-group:first-child:not(:last-child) > .btn:last-child, .chat-window .panel-footer .btn-group-vertical > .btn-group:first-child:not(:last-child) > .btn-chat:last-child,
+.btn-group-vertical > .btn-group:first-child:not(:last-child) > .btn:last-child, chat-window .panel-footer .btn-group-vertical > .btn-group:first-child:not(:last-child) > .btn-chat:last-child,
 .btn-group-vertical > .btn-group:first-child:not(:last-child) > .dropdown-toggle {
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0; }
 
-.btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn:first-child, .chat-window .panel-footer .btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn-chat:first-child {
+.btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn:first-child, chat-window .panel-footer .btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn-chat:first-child {
   border-top-right-radius: 0;
   border-top-left-radius: 0; }
 
@@ -3516,22 +3516,22 @@ tbody.collapse.in {
   width: 100%;
   table-layout: fixed;
   border-collapse: separate; }
-  .btn-group-justified > .btn, .chat-window .panel-footer .btn-group-justified > .btn-chat,
+  .btn-group-justified > .btn, chat-window .panel-footer .btn-group-justified > .btn-chat,
   .btn-group-justified > .btn-group {
     float: none;
     display: table-cell;
     width: 1%; }
-  .btn-group-justified > .btn-group .btn, .btn-group-justified > .btn-group .chat-window .panel-footer .btn-chat, .chat-window .panel-footer .btn-group-justified > .btn-group .btn-chat {
+  .btn-group-justified > .btn-group .btn, .btn-group-justified > .btn-group chat-window .panel-footer .btn-chat, chat-window .panel-footer .btn-group-justified > .btn-group .btn-chat {
     width: 100%; }
   .btn-group-justified > .btn-group .dropdown-menu {
     left: auto; }
 
-[data-toggle="buttons"] > .btn input[type="radio"], .chat-window .panel-footer [data-toggle="buttons"] > .btn-chat input[type="radio"],
-[data-toggle="buttons"] > .btn input[type="checkbox"], .chat-window .panel-footer
+[data-toggle="buttons"] > .btn input[type="radio"], chat-window .panel-footer [data-toggle="buttons"] > .btn-chat input[type="radio"],
+[data-toggle="buttons"] > .btn input[type="checkbox"], chat-window .panel-footer
 [data-toggle="buttons"] > .btn-chat input[type="checkbox"],
-[data-toggle="buttons"] > .btn-group > .btn input[type="radio"], .chat-window .panel-footer
+[data-toggle="buttons"] > .btn-group > .btn input[type="radio"], chat-window .panel-footer
 [data-toggle="buttons"] > .btn-group > .btn-chat input[type="radio"],
-[data-toggle="buttons"] > .btn-group > .btn input[type="checkbox"], .chat-window .panel-footer
+[data-toggle="buttons"] > .btn-group > .btn input[type="checkbox"], chat-window .panel-footer
 [data-toggle="buttons"] > .btn-group > .btn-chat input[type="checkbox"] {
   position: absolute;
   clip: rect(0, 0, 0, 0);
@@ -3545,7 +3545,7 @@ tbody.collapse.in {
     float: none;
     padding-left: 0;
     padding-right: 0; }
-  .input-group .form-control, .input-group .chat-window .panel-footer .chat-input, .chat-window .panel-footer .input-group .chat-input {
+  .input-group .form-control, .input-group chat-window .panel-footer .chat-input, chat-window .panel-footer .input-group .chat-input {
     position: relative;
     z-index: 2;
     float: left;
@@ -3555,13 +3555,13 @@ tbody.collapse.in {
 .input-group-addon,
 .input-group-btn,
 .input-group .form-control,
-.input-group .chat-window .panel-footer .chat-input, .chat-window .panel-footer
+.input-group chat-window .panel-footer .chat-input, chat-window .panel-footer
 .input-group .chat-input {
   display: table-cell; }
   .input-group-addon:not(:first-child):not(:last-child),
   .input-group-btn:not(:first-child):not(:last-child),
   .input-group .form-control:not(:first-child):not(:last-child),
-  .input-group .chat-window .panel-footer .chat-input:not(:first-child):not(:last-child), .chat-window .panel-footer
+  .input-group chat-window .panel-footer .chat-input:not(:first-child):not(:last-child), chat-window .panel-footer
   .input-group .chat-input:not(:first-child):not(:last-child) {
     border-radius: 0; }
 
@@ -3583,14 +3583,14 @@ tbody.collapse.in {
   border-radius: 4px; }
   .input-group-addon.input-sm,
   .input-group-sm > .input-group-addon,
-  .input-group-sm > .input-group-btn > .input-group-addon.btn, .chat-window .panel-footer
-  .input-group-sm > .input-group-btn > .input-group-addon.btn-chat, .chat-window .panel-footer .input-group-addon.chat-input {
+  .input-group-sm > .input-group-btn > .input-group-addon.btn, chat-window .panel-footer
+  .input-group-sm > .input-group-btn > .input-group-addon.btn-chat, chat-window .panel-footer .input-group-addon.chat-input {
     padding: 5px 10px;
     font-size: 12px;
     border-radius: 3px; }
-  .input-group-addon.input-lg, .chat-window .panel-footer .input-group-lg > .input-group-addon.chat-input,
+  .input-group-addon.input-lg, chat-window .panel-footer .input-group-lg > .input-group-addon.chat-input,
   .input-group-lg > .input-group-addon,
-  .input-group-lg > .input-group-btn > .input-group-addon.btn, .chat-window .panel-footer
+  .input-group-lg > .input-group-btn > .input-group-addon.btn, chat-window .panel-footer
   .input-group-lg > .input-group-btn > .input-group-addon.btn-chat {
     padding: 10px 16px;
     font-size: 18px;
@@ -3599,16 +3599,16 @@ tbody.collapse.in {
   .input-group-addon input[type="checkbox"] {
     margin-top: 0; }
 
-.input-group .form-control:first-child, .input-group .chat-window .panel-footer .chat-input:first-child, .chat-window .panel-footer .input-group .chat-input:first-child,
+.input-group .form-control:first-child, .input-group chat-window .panel-footer .chat-input:first-child, chat-window .panel-footer .input-group .chat-input:first-child,
 .input-group-addon:first-child,
-.input-group-btn:first-child > .btn, .chat-window .panel-footer
+.input-group-btn:first-child > .btn, chat-window .panel-footer
 .input-group-btn:first-child > .btn-chat,
-.input-group-btn:first-child > .btn-group > .btn, .chat-window .panel-footer
+.input-group-btn:first-child > .btn-group > .btn, chat-window .panel-footer
 .input-group-btn:first-child > .btn-group > .btn-chat,
 .input-group-btn:first-child > .dropdown-toggle,
-.input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle), .chat-window .panel-footer
+.input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle), chat-window .panel-footer
 .input-group-btn:last-child > .btn-chat:not(:last-child):not(.dropdown-toggle),
-.input-group-btn:last-child > .btn-group:not(:last-child) > .btn, .chat-window .panel-footer
+.input-group-btn:last-child > .btn-group:not(:last-child) > .btn, chat-window .panel-footer
 .input-group-btn:last-child > .btn-group:not(:last-child) > .btn-chat {
   border-bottom-right-radius: 0;
   border-top-right-radius: 0; }
@@ -3616,16 +3616,16 @@ tbody.collapse.in {
 .input-group-addon:first-child {
   border-right: 0; }
 
-.input-group .form-control:last-child, .input-group .chat-window .panel-footer .chat-input:last-child, .chat-window .panel-footer .input-group .chat-input:last-child,
+.input-group .form-control:last-child, .input-group chat-window .panel-footer .chat-input:last-child, chat-window .panel-footer .input-group .chat-input:last-child,
 .input-group-addon:last-child,
-.input-group-btn:last-child > .btn, .chat-window .panel-footer
+.input-group-btn:last-child > .btn, chat-window .panel-footer
 .input-group-btn:last-child > .btn-chat,
-.input-group-btn:last-child > .btn-group > .btn, .chat-window .panel-footer
+.input-group-btn:last-child > .btn-group > .btn, chat-window .panel-footer
 .input-group-btn:last-child > .btn-group > .btn-chat,
 .input-group-btn:last-child > .dropdown-toggle,
-.input-group-btn:first-child > .btn:not(:first-child), .chat-window .panel-footer
+.input-group-btn:first-child > .btn:not(:first-child), chat-window .panel-footer
 .input-group-btn:first-child > .btn-chat:not(:first-child),
-.input-group-btn:first-child > .btn-group:not(:first-child) > .btn, .chat-window .panel-footer
+.input-group-btn:first-child > .btn-group:not(:first-child) > .btn, chat-window .panel-footer
 .input-group-btn:first-child > .btn-group:not(:first-child) > .btn-chat {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0; }
@@ -3637,16 +3637,16 @@ tbody.collapse.in {
   position: relative;
   font-size: 0;
   white-space: nowrap; }
-  .input-group-btn > .btn, .chat-window .panel-footer .input-group-btn > .btn-chat {
+  .input-group-btn > .btn, chat-window .panel-footer .input-group-btn > .btn-chat {
     position: relative; }
-    .input-group-btn > .btn + .btn, .chat-window .panel-footer .input-group-btn > .btn-chat + .btn, .chat-window .panel-footer .input-group-btn > .btn + .btn-chat, .chat-window .panel-footer .input-group-btn > .btn-chat + .btn-chat {
+    .input-group-btn > .btn + .btn, chat-window .panel-footer .input-group-btn > .btn-chat + .btn, chat-window .panel-footer .input-group-btn > .btn + .btn-chat, chat-window .panel-footer .input-group-btn > .btn-chat + .btn-chat {
       margin-left: -1px; }
-    .input-group-btn > .btn:hover, .chat-window .panel-footer .input-group-btn > .btn-chat:hover, .input-group-btn > .btn:focus, .chat-window .panel-footer .input-group-btn > .btn-chat:focus, .input-group-btn > .btn:active, .chat-window .panel-footer .input-group-btn > .btn-chat:active {
+    .input-group-btn > .btn:hover, chat-window .panel-footer .input-group-btn > .btn-chat:hover, .input-group-btn > .btn:focus, chat-window .panel-footer .input-group-btn > .btn-chat:focus, .input-group-btn > .btn:active, chat-window .panel-footer .input-group-btn > .btn-chat:active {
       z-index: 2; }
-  .input-group-btn:first-child > .btn, .chat-window .panel-footer .input-group-btn:first-child > .btn-chat,
+  .input-group-btn:first-child > .btn, chat-window .panel-footer .input-group-btn:first-child > .btn-chat,
   .input-group-btn:first-child > .btn-group {
     margin-right: -1px; }
-  .input-group-btn:last-child > .btn, .chat-window .panel-footer .input-group-btn:last-child > .btn-chat,
+  .input-group-btn:last-child > .btn, chat-window .panel-footer .input-group-btn:last-child > .btn-chat,
   .input-group-btn:last-child > .btn-group {
     z-index: 2;
     margin-left: -1px; }
@@ -3961,7 +3961,7 @@ tbody.collapse.in {
       display: inline-block;
       margin-bottom: 0;
       vertical-align: middle; }
-    .navbar-form .form-control, .navbar-form .chat-window .panel-footer .chat-input, .chat-window .panel-footer .navbar-form .chat-input {
+    .navbar-form .form-control, .navbar-form chat-window .panel-footer .chat-input, chat-window .panel-footer .navbar-form .chat-input {
       display: inline-block;
       width: auto;
       vertical-align: middle; }
@@ -3973,10 +3973,10 @@ tbody.collapse.in {
       .navbar-form .input-group .input-group-addon,
       .navbar-form .input-group .input-group-btn,
       .navbar-form .input-group .form-control,
-      .navbar-form .input-group .chat-window .panel-footer .chat-input, .chat-window .panel-footer
+      .navbar-form .input-group chat-window .panel-footer .chat-input, chat-window .panel-footer
       .navbar-form .input-group .chat-input {
         width: auto; }
-    .navbar-form .input-group > .form-control, .navbar-form .chat-window .panel-footer .input-group > .chat-input, .chat-window .panel-footer .navbar-form .input-group > .chat-input {
+    .navbar-form .input-group > .form-control, .navbar-form chat-window .panel-footer .input-group > .chat-input, chat-window .panel-footer .navbar-form .input-group > .chat-input {
       width: 100%; }
     .navbar-form .control-label {
       margin-bottom: 0;
@@ -4027,10 +4027,10 @@ tbody.collapse.in {
 .navbar-btn {
   margin-top: 8px;
   margin-bottom: 8px; }
-  .navbar-btn.btn-sm, .btn-group-sm > .navbar-btn.btn, .chat-window .panel-footer .navbar-btn.btn-chat {
+  .navbar-btn.btn-sm, .btn-group-sm > .navbar-btn.btn, chat-window .panel-footer .navbar-btn.btn-chat {
     margin-top: 10px;
     margin-bottom: 10px; }
-  .navbar-btn.btn-xs, .btn-group-xs > .navbar-btn.btn, .chat-window .panel-footer .btn-group-xs > .navbar-btn.btn-chat {
+  .navbar-btn.btn-xs, .btn-group-xs > .navbar-btn.btn, chat-window .panel-footer .btn-group-xs > .navbar-btn.btn-chat {
     margin-top: 14px;
     margin-bottom: 14px; }
 
@@ -4323,7 +4323,7 @@ tbody.collapse.in {
   border-radius: .25em; }
   .label:empty {
     display: none; }
-  .btn .label, .chat-window .panel-footer .btn-chat .label {
+  .btn .label, chat-window .panel-footer .btn-chat .label {
     position: relative;
     top: -1px; }
 
@@ -4377,11 +4377,11 @@ a.label:hover, a.label:focus {
   border-radius: 10px; }
   .badge:empty {
     display: none; }
-  .btn .badge, .chat-window .panel-footer .btn-chat .badge {
+  .btn .badge, chat-window .panel-footer .btn-chat .badge {
     position: relative;
     top: -1px; }
-  .btn-xs .badge, .btn-group-xs > .btn .badge, .chat-window .panel-footer .btn-group-xs > .btn-chat .badge,
-  .btn-group-xs > .btn .badge, .chat-window .panel-footer
+  .btn-xs .badge, .btn-group-xs > .btn .badge, chat-window .panel-footer .btn-group-xs > .btn-chat .badge,
+  .btn-group-xs > .btn .badge, chat-window .panel-footer
   .btn-group-xs > .btn-chat .badge {
     top: 0;
     padding: 1px 5px; }
@@ -5266,10 +5266,10 @@ button.close {
     display: table; }
   .modal-footer:after {
     clear: both; }
-  .modal-footer .btn + .btn, .modal-footer .chat-window .panel-footer .btn-chat + .btn, .chat-window .panel-footer .modal-footer .btn-chat + .btn, .modal-footer .chat-window .panel-footer .btn + .btn-chat, .chat-window .panel-footer .modal-footer .btn + .btn-chat, .modal-footer .chat-window .panel-footer .btn-chat + .btn-chat, .chat-window .panel-footer .modal-footer .btn-chat + .btn-chat {
+  .modal-footer .btn + .btn, .modal-footer chat-window .panel-footer .btn-chat + .btn, chat-window .panel-footer .modal-footer .btn-chat + .btn, .modal-footer chat-window .panel-footer .btn + .btn-chat, chat-window .panel-footer .modal-footer .btn + .btn-chat, .modal-footer chat-window .panel-footer .btn-chat + .btn-chat, chat-window .panel-footer .modal-footer .btn-chat + .btn-chat {
     margin-left: 5px;
     margin-bottom: 0; }
-  .modal-footer .btn-group .btn + .btn, .modal-footer .btn-group .chat-window .panel-footer .btn-chat + .btn, .chat-window .panel-footer .modal-footer .btn-group .btn-chat + .btn, .modal-footer .btn-group .chat-window .panel-footer .btn + .btn-chat, .chat-window .panel-footer .modal-footer .btn-group .btn + .btn-chat, .modal-footer .btn-group .chat-window .panel-footer .btn-chat + .btn-chat, .chat-window .panel-footer .modal-footer .btn-group .btn-chat + .btn-chat {
+  .modal-footer .btn-group .btn + .btn, .modal-footer .btn-group chat-window .panel-footer .btn-chat + .btn, chat-window .panel-footer .modal-footer .btn-group .btn-chat + .btn, .modal-footer .btn-group chat-window .panel-footer .btn + .btn-chat, chat-window .panel-footer .modal-footer .btn-group .btn + .btn-chat, .modal-footer .btn-group chat-window .panel-footer .btn-chat + .btn-chat, chat-window .panel-footer .modal-footer .btn-group .btn-chat + .btn-chat {
     margin-left: -1px; }
   .modal-footer .btn-block + .btn-block {
     margin-left: 0; }
@@ -5690,7 +5690,7 @@ button.close {
   color: #fff;
   text-align: center;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6); }
-  .carousel-caption .btn, .carousel-caption .chat-window .panel-footer .btn-chat, .chat-window .panel-footer .carousel-caption .btn-chat {
+  .carousel-caption .btn, .carousel-caption chat-window .panel-footer .btn-chat, chat-window .panel-footer .carousel-caption .btn-chat {
     text-shadow: none; }
 
 @media screen and (min-width: 768px) {
@@ -5978,60 +5978,60 @@ button.close {
   .conversation-wrap::-webkit-scrollbar-thumb:window-inactive {
     background: #ddd; }
 
-.chat-window {
+chat-window {
   bottom: 0;
   right: 0;
   position: fixed;
   float: right;
   margin-left: 10px; }
-  .chat-window > div > .panel {
+  chat-window > div > .panel {
     border-radius: 5px 5px 0 0; }
-  .chat-window .col-md-2, .chat-window .top-bar .panel-buttons-container, .chat-window .msg-container .avatar, .chat-window .col-md-10, .chat-window .top-bar .panel-title-container, .chat-window .messages {
+  chat-window .col-md-2, chat-window .top-bar .panel-buttons-container, chat-window chat-message .avatar, chat-window .col-md-10, chat-window .top-bar .panel-title-container, chat-window .messages {
     padding: 0; }
-  .chat-window .panel {
+  chat-window .panel {
     margin-bottom: 0px; }
-  .chat-window .icon_minim {
+  chat-window .icon_minim {
     padding: 2px 10px; }
-  .chat-window .msg-container-base {
+  chat-window .msg-container-base {
     background: #e5e5e5;
     margin: 0;
     padding: 0 10px 10px;
     max-height: 300px;
     overflow-x: hidden; }
-  .chat-window .top-bar {
-    background: #666;
-    color: white;
-    padding: 10px;
+  chat-window .top-bar {
+    background: #666 !important;
+    color: white !important;
+    padding: 10px !important;
     position: relative;
     overflow: hidden; }
-  .chat-window .msg-receive {
+  chat-window .msg-receive {
     padding-left: 0;
     margin-left: 0; }
-  .chat-window .msg-sent {
+  chat-window .msg-sent {
     padding-bottom: 20px !important;
     margin-right: 0; }
-  .chat-window .messages {
+  chat-window .messages {
     background: white;
     padding: 10px;
     border-radius: 2px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
     max-width: 100%; }
-    .chat-window .messages > p {
+    chat-window .messages > p {
       font-size: 13px;
       margin: 0 0 0.2rem 0; }
-    .chat-window .messages > .time {
+    chat-window .messages > .time {
       font-size: 11px;
       color: #ccc; }
-  .chat-window .msg-container {
+  chat-window chat-message {
     padding: 10px;
     overflow: hidden;
     display: flex; }
-  .chat-window img {
+  chat-window img {
     display: block;
     width: 100%; }
-  .chat-window .avatar {
+  chat-window .avatar {
     position: relative; }
-  .chat-window .base-receive > .avatar:after {
+  chat-window .base-receive > .avatar:after {
     content: "";
     position: absolute;
     top: 0;
@@ -6041,10 +6041,10 @@ button.close {
     border: 5px solid #FFF;
     border-left-color: transparent;
     border-bottom-color: transparent; }
-  .chat-window .base-sent {
+  chat-window .base-sent {
     justify-content: flex-end;
     align-items: flex-end; }
-    .chat-window .base-sent > .avatar:after {
+    chat-window .base-sent > .avatar:after {
       content: "";
       position: absolute;
       bottom: 0;
@@ -6055,18 +6055,18 @@ button.close {
       border-right-color: transparent;
       border-top-color: transparent;
       box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); }
-  .chat-window .msg-sent > .time {
+  chat-window .msg-sent > .time {
     float: right; }
-  .chat-window .msg-container-base::-webkit-scrollbar-track {
+  chat-window .msg-container-base::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     background-color: #F5F5F5; }
-  .chat-window .msg-container-base::-webkit-scrollbar {
+  chat-window .msg-container-base::-webkit-scrollbar {
     width: 12px;
     background-color: #F5F5F5; }
-  .chat-window .msg-container-base::-webkit-scrollbar-thumb {
+  chat-window .msg-container-base::-webkit-scrollbar-thumb {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     background-color: #555; }
-  .chat-window .btn-group.dropup {
+  chat-window .btn-group.dropup {
     position: fixed;
     left: 0px;
     bottom: 0; }

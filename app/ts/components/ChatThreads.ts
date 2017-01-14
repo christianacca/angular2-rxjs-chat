@@ -1,30 +1,30 @@
 import {
-  Component,
-  OnInit,
   ChangeDetectionStrategy,
-  HostListener
+  Component,
+  HostListener,
+  OnInit,
 } from '@angular/core';
-import {ThreadsService} from '../services/services';
+
 import {Observable} from 'rxjs';
 import {Thread} from '../models';
+import {ThreadsService} from '../services';
 
 @Component({
   inputs: ['thread'],
   selector: 'chat-thread',
   template: `
-  <div class="media conversation">
-    <div class="pull-left">
-      <img class="media-object avatar" 
-           src="{{thread.avatarSrc}}">
-    </div>
-    <div class="media-body">
-      <h5 class="media-heading contact-name">{{thread.name}}
-        <span *ngIf="selected | async">&bull;</span>
-      </h5>
-      <small class="message-preview">{{thread.lastMessage.text}}</small>
-    </div>
+  <div class="pull-left">
+    <img class="media-object avatar" 
+          src="{{thread.avatarSrc}}">
   </div>
-  `
+  <div class="media-body">
+    <h5 class="media-heading contact-name">{{thread.name}}
+      <span *ngIf="selected | async">&bull;</span>
+    </h5>
+    <small class="message-preview">{{thread.lastMessage.text}}</small>
+  </div>
+  `,
+  host: {'class': 'media conversation'}
 })
 export class ChatThread implements OnInit {
   thread: Thread;
@@ -48,18 +48,14 @@ export class ChatThread implements OnInit {
   selector: 'chat-threads',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <!-- conversations -->
-    <div class="row">
-      <div class="conversation-wrap">
-
-        <chat-thread
-             *ngFor="let thread of threads | async"
-             [thread]="thread">
-        </chat-thread>
-
-      </div>
-    </div>
-  `
+  <div class="conversation-wrap">
+    <chat-thread
+          *ngFor="let thread of threads | async"
+          [thread]="thread">
+    </chat-thread>
+  </div>
+  `,
+  styles: [`:host { display: block }`]
 })
 export class ChatThreads {
   threads: Observable<any>;

@@ -73,7 +73,7 @@
   @extend .row;
 }
 
-.chat-window {
+chat-window {
   @extend .col-xs-5; 
   @extend .col-md-3;
 
@@ -126,8 +126,8 @@
   }
 
   .top-bar {
-    background: #666;
-    color: white;
+    background: #666 !important;
+    color: white !important;
     padding: 10px;
     position: relative;
     overflow: hidden;
@@ -173,7 +173,7 @@
     }
   }
 
-  .msg-container {
+  chat-message {
     @extend .row;
     padding: 10px;
     overflow: hidden;
