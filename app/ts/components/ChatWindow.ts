@@ -1,6 +1,5 @@
 import {
   AfterViewInit,
-  ChangeDetectionStrategy,
   Component,
   ElementRef,
   OnDestroy,
@@ -9,19 +8,18 @@ import {
   ViewChild,
   ViewChildren,
 } from '@angular/core';
-import {Message, Thread} from '../models';
+import { Message, Thread } from '../models';
 import {
   MessagesService,
   ThreadsService,
   UserService,
 } from '../services';
-import {Observable, Subject, Subscription} from 'rxjs';
+import { Observable, Subject, Subscription } from 'rxjs';
 
 import { ChatMessage } from './ChatMessage';
 
 @Component({
   selector: 'chat-window',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="panel-container">
       <div class="panel panel-default">
@@ -42,7 +40,7 @@ import { ChatMessage } from './ChatMessage';
           <chat-message
                 *ngFor="let message of messages$ | async"
                 [message]="message"
-                [currentUser]="userService.currentUser | async">
+                [currentUser]="userService.currentUser$ | async">
           </chat-message>
         </div>
 
@@ -75,9 +73,9 @@ export class ChatWindow implements OnDestroy, OnInit, AfterViewInit {
   private updatesSub: Subscription;
 
   constructor(public messagesService: MessagesService,
-              public threadsService: ThreadsService,
-              public userService: UserService,
-              public el: ElementRef) {
+    public threadsService: ThreadsService,
+    public userService: UserService,
+    public el: ElementRef) {
   }
 
   ngAfterViewInit() {
@@ -89,15 +87,15 @@ export class ChatWindow implements OnDestroy, OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.currentThread$ = this.threadsService.currentThread;
-    this.messages$ = this.threadsService.currentThreadMessages.do(() => {
+    this.currentThread$ = this.threadsService.currentThread$;
+    this.messages$ = this.threadsService.currentThreadMessages$.do(() => {
       console.log(`ChatWindow.messages$ emitted`);
     });
     this.draftMessage = new Message();
 
     this.updatesSub = Observable.merge(
-      this.readThreadActions(),
-      this.sendMessageActions()
+      this.readThreadActions$(),
+      this.sendMessageActions$()
     ).subscribe(action => {
       action();
     });
@@ -107,21 +105,26 @@ export class ChatWindow implements OnDestroy, OnInit, AfterViewInit {
     this.updatesSub.unsubscribe();
   }
 
-  private readThreadActions() {
-    const unreadMessages$ = this.messages$
-      .filter(msgs => msgs.filter(m => !m.isRead).length > 0);
+  private readThreadActions$() {
+    const unreadMessages$ = this.messagesService
+      .unreadMessageForUser$(this.userService.currentUser$, this.currentThread$);
 
     return unreadMessages$
-      .map(([msg]) => () => {
-        this.messagesService.markThreadAsRead(msg.thread);
+      .switchMapTo(this.currentThread$)
+      .map(t => () => {
+        this.messagesService.markThreadAsRead(t);
       });
   }
 
-  private sendMessageActions() {
+  private sendMessageActions$() {
     const newMessages$ = this.sendMessage$
-      .withLatestFrom(this.userService.currentUser, this.currentThread$)
+      .withLatestFrom(this.userService.currentUser$, this.currentThread$)
       .map(([, author, thread]) => {
-        return Object.assign({}, this.draftMessage, {author, thread, isRead: true}) as Message;
+        const props = { author, thread, createdOn: new Date() };
+        const newMsg = Object.assign(new Message(this.draftMessage), props) as Message;
+        // Cache the most recent message for each thread
+        thread.lastMessage = newMsg;
+        return newMsg;
       });
 
     return newMessages$

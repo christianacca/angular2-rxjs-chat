@@ -7,11 +7,11 @@ export class UseCaseEventsService {
     reset$: Observable<any>;
     stop$: Observable<Date>;
     isRunning = true;
-    private resetSubject = new Subject<any>();
-    private stopSubject = new Subject<Date>();
+    private resetSubject$ = new Subject<any>();
+    private stopSubject$ = new Subject<Date>();
     constructor() {
-        this.reset$ = this.resetSubject.asObservable();
-        this.stop$ = this.stopSubject.asObservable();
+        this.reset$ = this.resetSubject$.asObservable();
+        this.stop$ = this.stopSubject$.asObservable();
     }
 
     reset() {
@@ -21,13 +21,13 @@ export class UseCaseEventsService {
 
         console.log('reset');
         this.isRunning = true;
-        this.resetSubject.next(null);
+        this.resetSubject$.next(null);
     }
     stop() {
         if (!this.isRunning) { return; }
         
         console.log('stop');
         this.isRunning = false;
-        this.stopSubject.next(new Date());
+        this.stopSubject$.next(new Date());
     }
 }

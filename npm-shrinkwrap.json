@@ -131,6 +131,12 @@
       "from": "amdefine@>=0.0.4",
       "resolved": "https://registry.npmjs.org/amdefine/-/amdefine-1.0.1.tgz"
     },
+    "angular-in-memory-web-api": {
+      "version": "0.2.4",
+      "from": "angular-in-memory-web-api@latest",
+      "resolved": "https://registry.npmjs.org/angular-in-memory-web-api/-/angular-in-memory-web-api-0.2.4.tgz",
+      "dev": true
+    },
     "ansi-regex": {
       "version": "2.0.0",
       "from": "ansi-regex@>=2.0.0 <3.0.0",
@@ -4739,9 +4745,9 @@
       "resolved": "https://registry.npmjs.org/typedarray/-/typedarray-0.0.6.tgz"
     },
     "typescript": {
-      "version": "2.1.4",
-      "from": "typescript@>=2.0.3 <3.0.0",
-      "resolved": "https://registry.npmjs.org/typescript/-/typescript-2.1.4.tgz",
+      "version": "2.1.6",
+      "from": "typescript@latest",
+      "resolved": "https://registry.npmjs.org/typescript/-/typescript-2.1.6.tgz",
       "dev": true
     },
     "typings": {

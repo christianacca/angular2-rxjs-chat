@@ -27,9 +27,14 @@ import {
 import {
   FormsModule,
 } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { InMemoryChatDbService } from './InMemoryChatDbService';
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { UseCaseModule } from './shared/use-case/index';
+import { dataServicesInjectables } from './services';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { utilInjectables } from './util/util';
+
 
 /*
  * Webpack
@@ -62,8 +67,11 @@ class App {}
   imports: [
     BrowserModule,
     FormsModule,
-    UseCaseModule
+    UseCaseModule,
+    HttpModule,
+    InMemoryWebApiModule.forRoot(InMemoryChatDbService, { post204: false })
   ],
+  providers: [dataServicesInjectables],
   bootstrap: [App]
 })
 export class ChatAppModule { }
@@ -75,7 +83,6 @@ platformBrowserDynamic().bootstrapModule(ChatAppModule);
 // They're currently required to get watch-reloading
 // from webpack, but removing them is a TODO
 require('./services');
-require('./ChatExampleData');
 require('./util/util');
 require('./components/ChatApp');
 require('./components/ChatNavBar');

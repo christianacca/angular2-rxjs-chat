@@ -15,11 +15,11 @@ import {ThreadsService} from '../services';
   template: `
   <div class="pull-left">
     <img class="media-object avatar" 
-          src="{{thread.avatarSrc}}">
+          src="{{thread.startedBy.avatarSrc}}">
   </div>
   <div class="media-body">
-    <h5 class="media-heading contact-name">{{thread.name}}
-      <span *ngIf="selected | async">&bull;</span>
+    <h5 class="media-heading contact-name">{{thread.startedBy.name}}
+      <span *ngIf="selected$ | async">&bull;</span>
     </h5>
     <small class="message-preview">{{thread.lastMessage.text}}</small>
   </div>
@@ -28,14 +28,14 @@ import {ThreadsService} from '../services';
 })
 export class ChatThread implements OnInit {
   thread: Thread;
-  selected: Observable<boolean>;
+  selected$: Observable<boolean>;
 
   constructor(public threadsService: ThreadsService) {
   }
 
   ngOnInit(): void {
-    this.selected = this.threadsService.currentThread
-      .map(currentThread => currentThread && (currentThread.id === this.thread.id));
+    this.selected$ = this.threadsService.currentThread$
+      .map(currentThread => currentThread && (currentThread === this.thread));
   }
 
   @HostListener('click') clicked(): void {
@@ -50,7 +50,7 @@ export class ChatThread implements OnInit {
   template: `
   <div class="conversation-wrap">
     <chat-thread
-          *ngFor="let thread of threads | async"
+          *ngFor="let thread of threads$ | async"
           [thread]="thread">
     </chat-thread>
   </div>
@@ -58,9 +58,9 @@ export class ChatThread implements OnInit {
   styles: [`:host { display: block }`]
 })
 export class ChatThreads {
-  threads: Observable<any>;
+  threads$: Observable<any>;
 
   constructor(public threadsService: ThreadsService) {
-    this.threads = threadsService.orderedThreads;
+    this.threads$ = threadsService.orderedThreads$;
   }
 }

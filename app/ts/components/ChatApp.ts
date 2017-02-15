@@ -1,3 +1,4 @@
+import { ChatAppDataGateway } from './../services/ChatAppDataGateway';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import {
   MessagesService,
@@ -5,7 +6,7 @@ import {
   UserService,
 } from '../services';
 
-import { ChatExampleData } from '../ChatExampleData';
+import { ChatExampleBots } from '../services';
 import { UseCaseManager } from './../shared/use-case';
 import { servicesInjectables } from '../services';
 
@@ -37,7 +38,9 @@ export class ChatAppImpl implements OnDestroy, OnInit {
   constructor(public messagesService: MessagesService,
     private threadsService: ThreadsService,
     private userService: UserService,
-    private useCase: UseCaseManager) {
+    private useCase: UseCaseManager,
+    private exampleBots: ChatExampleBots,
+    private dataGateway: ChatAppDataGateway) {
       console.log('ChatApp created');
   }
 
@@ -48,12 +51,12 @@ export class ChatAppImpl implements OnDestroy, OnInit {
   ngOnInit() {
     // note: strictly speaking we don't need to have UseCaseManager
     // start our services for us.
-    // This is because internally MessagesService and ThreadsService
+    // This is because internally MessagesService (etc)
     // do not create state that lives longer than they do themselves.
-    // Once the use-case-conent directive kills me, my messagesService
-    // and threadsService will be garbage collect
-    this.useCase.start(this.messagesService, this.threadsService);
-    ChatExampleData.init(this.messagesService, this.threadsService, this.userService);
+    // Once the use-case-content directive kills me, my messagesService
+    // (etc) will be garbage collect
+
+    this.useCase.start(this.dataGateway, this.messagesService, this.threadsService, this.exampleBots);
   }
 }
 

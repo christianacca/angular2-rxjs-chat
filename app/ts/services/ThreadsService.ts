@@ -10,61 +10,62 @@ import {MessagesService} from './MessagesService';
 export class ThreadsService {
 
   // `threads` is a observable that contains the most up to date list of threads
-  threads: Observable<{ [key: string]: Thread }>;
+  threads$: Observable<{ [key: string]: Thread }>;
 
   // `orderedThreads` contains a newest-first chronological list of threads
-  orderedThreads: Observable<Thread[]>;
+  orderedThreads$: Observable<Thread[]>;
 
   // `currentThread` contains the currently selected thread
-  currentThread: Observable<Thread>;
+  currentThread$: Observable<Thread>;
 
   // `currentThreadMessages` contains the set of messages for the currently
   // selected thread
-  currentThreadMessages: Observable<Message[]>;
+  currentThreadMessages$: Observable<Message[]>;
 
-  private changeThread = new Subject<Thread>();
+  private changeThread$ = new Subject<Thread>();
   private hotObservables: ConnectableObservable<any>[] = [];
 
   constructor(public messagesService: MessagesService) {
     console.log('ThreadsService created');
-    const changes = this.changeActions();
-    this.hotObservables.push(changes);
+    const changes$ = this.changeActions$();
+    this.hotObservables.push(changes$);
 
-    this.currentThread = changes;
-    this.threads = this._threads();
-    this.orderedThreads = this._orderedThreads();
-    this.currentThreadMessages = this._currentThreadMessages();
+    this.currentThread$ = changes$;
+    this.threads$ = this._threads$();
+    this.orderedThreads$ = this._orderedThreads$();
+    this.currentThreadMessages$ = this._currentThreadMessages$();
   }
 
   setCurrentThread(newThread: Thread): void {
-    this.changeThread.next(newThread);
-  }
+    this.changeThread$.next(newThread);
+  } 
 
   start() {
     return this.hotObservables.map(o => o.connect());
   }
 
-  private changeActions() {
+  private changeActions$() {
     return Observable.merge(
-        this.changeThread.startWith(new Thread())
+        this.changeThread$.startWith(new Thread())
       )
       .publishReplay(1);
   }
 
-  private _currentThreadMessages() {
-    return this.currentThread
-      .combineLatest(this.messagesService.messages,
+  private _currentThreadMessages$() {
+    return this.currentThread$
+      .combineLatest(this.messagesService.messages$,
                      (currentThread, msgs) =>
-                     msgs.filter(m => m.thread.id === currentThread.id))
-      .do(() => {
-        console.log('currentThreadMessages emitted');
+                     msgs.filter(m => m.thread === currentThread))
+      .map(msgs => _.sortBy(msgs, 'sentAt'))
+      .do(msgs => {
+        console.log('currentThreadMessages emitted', msgs);
       })
       .publishReplay(1)
       .refCount();
   }
 
-  private _orderedThreads() {
-    return this.threads
+  private _orderedThreads$() {
+    return this.threads$
       .map((threadGroups: { [key: string]: Thread }) => {
         let threads: Thread[] = _.values(threadGroups);
         return _.sortBy(threads, t => t.lastMessage.sentAt).reverse();
@@ -76,8 +77,8 @@ export class ThreadsService {
       .refCount();
   }
 
-  private _threads() {
-    return this.messagesService.messages
+  private _threads$() {
+    return this.messagesService.messages$
       .map(msgs => msgs.reduce(
         (acc, m) => Object.assign(acc, { [m.thread.id]: m.thread }),
         {}))

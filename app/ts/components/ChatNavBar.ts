@@ -1,3 +1,4 @@
+import { UserService } from './../services/UserService';
 import {Component, OnInit} from '@angular/core';
 import {MessagesService, ThreadsService} from '../services';
 
@@ -18,7 +19,7 @@ import { Observable } from 'rxjs';
     </p>
     <p class="navbar-text navbar-right">
       <button class="btn btn-primary" type="button">
-        Messages <span class="badge">{{unreadMessagesCount | async}}</span>
+        Messages <span class="badge">{{unreadMessagesCount$ | async}}</span>
       </button>
     </p>
   </div>
@@ -28,19 +29,18 @@ import { Observable } from 'rxjs';
   }
 })
 export class ChatNavBar implements OnInit {
-  unreadMessagesCount: Observable<number>;
+  unreadMessagesCount$: Observable<number>;
 
   constructor(public messagesService: MessagesService,
-              public threadsService: ThreadsService) {
+              public threadsService: ThreadsService,
+              private userService: UserService) {
   }
 
   ngOnInit(): void {
-    this.unreadMessagesCount = this.messagesService.messages
-      .map(msgs =>
-        // note: in a "real" app you should also exclude 
-        // messages that were authored by the current user b/c they've
-        // already been "read"
-        msgs.reduce((sum, m) => !m.isRead ? ++sum : sum, 0));
+    this.unreadMessagesCount$ = this.messagesService.messages$
+      .combineLatest(this.userService.currentUser$)
+      .map(([msgs, me]) =>
+        msgs.reduce((sum, m) => m.author !== me && !m.isRead ? ++sum : sum, 0));
   }
 }
 

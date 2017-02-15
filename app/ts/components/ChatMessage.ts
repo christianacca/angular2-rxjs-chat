@@ -35,6 +35,6 @@ export class ChatMessage implements OnChanges {
   incoming: boolean;
 
   ngOnChanges(): void {
-    this.incoming = this.message.author.id !== this.currentUser.id;
+    this.incoming = this.message.author !== this.currentUser;
   }
 }

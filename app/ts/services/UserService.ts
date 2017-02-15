@@ -9,13 +9,13 @@ import {User} from '../models';
 @Injectable()
 export class UserService {
   // `currentUser` contains the current user
-  currentUser: Subject<User> = new BehaviorSubject<User>(null);
+  currentUser$: Subject<User> = new BehaviorSubject<User>(null);
 
   constructor() {
     console.log('UserService created');
   }
   public setCurrentUser(newUser: User): void {
-    this.currentUser.next(newUser);
+    this.currentUser$.next(newUser);
   }
 }
 
