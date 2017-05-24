@@ -29,14 +29,22 @@ export class ChatEntityManager {
 
         const ds = new ChatDataset({ messages, threads, users});
 
+        // certain entities are insert only ie do not get modified after insert
+        // we should remove these from the payload to be saved
+        const toSave = {
+            users: ds.users.filter(u => u.id == null),
+            threads: ds.threads.filter(t => t.id == null),
+            messages: ds.messages
+        };
+
         const userSavesRequests = Observable.forkJoin(
-            ds.users.map(u => this.userDs.save(u))
+            toSave.users.map(u => this.userDs.save(u))
         );
         const threadSaveRequests = Observable.forkJoin(
-            ds.threads.map(t => this.threadDs.save(t))
+            toSave.threads.map(t => this.threadDs.save(t))
         );
         const messageSavesRequests = Observable.forkJoin(
-            ds.messages.map(m => this.messageDs.save(m))
+            toSave.messages.map(m => this.messageDs.save(m))
         );
 
         return userSavesRequests.switchMap(savedUsers => {
